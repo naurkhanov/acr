@@ -24,7 +24,6 @@ function App() {
     );
   }
 
-  console.log(token);
   return <div className="App">{routes}</div>;
 }
 

@@ -13,12 +13,12 @@ const StyledButton = styled.button`
     outline: none;
   }
 
-  &:hover {
-    background-color: #fff;
-    box-shadow: 0 0 10px 1px rgba(157, 101, 201, 0.5);
-    color: #9d65c9;
-    transition: 500ms;
-  }
+  //&:hover {
+  //  background-color: #fff;
+  //  box-shadow: 0 0 10px 1px rgba(157, 101, 201, 0.5);
+  //  color: #9d65c9;
+  //  transition: 500ms;
+  //}
 
   ${(props) =>
     props.autorization &&
@@ -29,6 +29,12 @@ const StyledButton = styled.button`
       font-weight: 300;
       font-size: 20px;
       margin-top: 20px;
+    `}
+
+  ${(props) =>
+    props.disabled &&
+    css`
+      background-color: rgba(157, 101, 201, 0.5);
     `}
 `;
 

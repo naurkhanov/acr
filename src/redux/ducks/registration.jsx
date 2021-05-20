@@ -1,6 +1,6 @@
 const initialState = {
   loading: false,
-  token: '',
+  token: localStorage.getItem('auth-token'),
   authorizing: false,
   error: false,
 };
@@ -55,6 +55,7 @@ export const loginStart = (login, password) => {
             payload: json,
           });
         } else {
+          localStorage.setItem('auth-token', json.token);
           dispatch({
             type: 'auth/succeed',
             payload: json,

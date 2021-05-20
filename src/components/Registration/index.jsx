@@ -13,6 +13,7 @@ import { loginStart } from '../../redux/ducks/registration';
 function Registration(props) {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.registration.error);
+  const autorizing = useSelector((state) => state.registration.authorizing);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
@@ -36,7 +37,7 @@ function Registration(props) {
           setPassword={setPassword}
         />
         <Wrapper>
-          <Button autorization click={handleClick}>
+          <Button autorization click={handleClick} disabled={autorizing}>
             Авторизация
           </Button>
         </Wrapper>
