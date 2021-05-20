@@ -16,6 +16,8 @@
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -23,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettify": "prettier start"
+    "prettify": "prettier start",
+    "dev": "concurrently \"npm start\" \"json-server --watch db.json --port 3005\"\n"
   },
   "eslintConfig": {
     "extends": [
@@ -44,7 +47,9 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^6.1.0",
     "husky": "^6.0.0",
+    "json-server": "^0.16.3",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0"
   },
