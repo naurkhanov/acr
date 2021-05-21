@@ -30,6 +30,11 @@ export const registration = (state = initialState, action) => {
         authorizing: false,
         error: true,
       };
+    case 'auth/reset':
+      return {
+        ...state,
+        token: null,
+      };
 
     default:
       return state;
@@ -62,5 +67,14 @@ export const loginStart = (login, password) => {
           });
         }
       });
+  };
+};
+
+//выход из аккаунта
+
+export const authReset = () => {
+  localStorage.removeItem('auth-token');
+  return {
+    type: 'auth/reset',
   };
 };

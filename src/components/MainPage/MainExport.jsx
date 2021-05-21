@@ -6,6 +6,8 @@ const Export = styled.div`
   font-weight: 400;
   font-size: 18px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 function MainExport(props) {

@@ -7,6 +7,9 @@ const ExitButton = styled.div`
   font-size: 18px;
   cursor: pointer;
   margin-left: 30px;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 function MainExit(props) {

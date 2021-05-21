@@ -9,6 +9,12 @@ const Wrapper = styled.div`
       margin: auto;
       margin-top: 20px;
     `}
+  ${(props) =>
+    props.export &&
+    css`
+      display: flex;
+      align-items: center;
+    `}
 `;
 
 function MainWrap(props) {
