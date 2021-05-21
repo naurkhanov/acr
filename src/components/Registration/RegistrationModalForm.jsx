@@ -6,8 +6,7 @@ const RegistrationFormLogin = styled.input`
   height: 60px;
   font-size: 18px;
   font-weight: 300;
-  padding: 20px 0 20px 20px;
-  margin-top: 40px;
+  padding: 20px 20px 20px 20px;
   outline: #9d65c9;
   border-radius: 5px;
   border: none;
@@ -26,18 +25,18 @@ const RegistrationFormPassword = styled(RegistrationFormLogin)`
   font-weight: 300;
 `;
 
+const Eyes = styled.span``;
+
 function RegistrationModalForm(props) {
   return (
     <div>
       <RegistrationFormLogin
-        {...props}
         type="text"
         placeholder="Введите логин"
         value={props.login}
         onChange={(e) => props.setLogin(e.target.value)}
       />
       <RegistrationFormPassword
-        {...props}
         type="password"
         placeholder="Введите пароль"
         value={props.password}

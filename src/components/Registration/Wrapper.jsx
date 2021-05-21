@@ -14,6 +14,12 @@ const ButtonWrap = styled.div`
       justify-content: space-between;
       margin-top: 30px;
     `}
+
+  ${(props) =>
+    props.headerWrap &&
+    css`
+      flex-direction: row;
+    `}
 `;
 
 function Wrapper(props) {

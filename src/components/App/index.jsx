@@ -1,6 +1,6 @@
 import Registration from '../Registration';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Main from '../MainPages/Main';
+import Main from '../MainPage/Main';
 import { useSelector } from 'react-redux';
 
 function App() {
