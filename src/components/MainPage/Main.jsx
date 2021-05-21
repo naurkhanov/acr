@@ -5,6 +5,7 @@ import MainBrand from './MainBrand';
 import AddClientsButton from './AddClientsButton';
 import Wrapper from '../Registration/Wrapper';
 import MainExport from './MainExport';
+import MainExit from './MainExit';
 
 function Main(props) {
   return (
@@ -16,7 +17,7 @@ function Main(props) {
         </Wrapper>
         <Wrapper headerWrap>
           <MainExport>Экспорт </MainExport>
-          <div>Тип выход</div>
+          <MainExit>Выход</MainExit>
         </Wrapper>
       </MainSection>
     </MainWrap>
