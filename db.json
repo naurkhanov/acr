@@ -3,5 +3,354 @@
     "login": "admin",
     "password": "12345",
     "token":"qwerty1212e12qw3dword1oc1Eqeqeq"
-  }
+  },
+  "clients": [
+    {
+      "id": 1,
+      "firstname": "Ахмад",
+      "lastname": "Цугаев",
+      "surname": "Якубович",
+      "countryCode": "+7",
+      "phone": "9298922305",
+      "email": "admin@intocode.ru",
+      "passportNo": "12345",
+      "passportSerial": "1221221",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Трошева 7"
+    },
+    {
+      "id": 2,
+      "firstname": "Дени",
+      "lastname": "Наурханов",
+      "surname": "Хамзатович",
+      "countryCode": "+7",
+      "phone": "9298522305",
+      "email": "nrh843@gmail.com",
+      "passportNo": "143566",
+      "passportSerial": "132231",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Улица 7"
+    },
+    {
+      "id": 3,
+      "firstname": "Eгор",
+      "lastname": "Еров",
+      "surname": "Егоров",
+      "countryCode": "+7",
+      "phone": "9298521605",
+      "email": "erove@gmail.com",
+      "passportNo": "98915",
+      "passportSerial": "738451",
+      "createdDate": "...",
+      "city": "СПБ",
+      "address": "ул.Разбитых-фанарей"
+    },
+    {
+      "id": 4,
+      "firstname": "Тимур",
+      "lastname": "Сераз",
+      "surname": "Теймуразович",
+      "countryCode": "+7",
+      "phone": "9298522155",
+      "email": "seraz@inbox.ru",
+      "passportNo": "13589",
+      "passportSerial": "132546576",
+      "createdDate": "...",
+      "city": "Москва",
+      "address": "ул.Сезам"
+    },
+    {
+      "id": 5,
+      "firstname": "Дени",
+      "lastname": "Наурханов",
+      "surname": "Хамзатович",
+      "countryCode": "+7",
+      "phone": "9298522305",
+      "email": "nrh843@gmail.com",
+      "passportNo": "143566",
+      "passportSerial": "132231",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Улица 7"
+    },
+    {
+      "id": 6,
+      "firstname": "Курбан",
+      "lastname": "Буев",
+      "surname": "Лечаевич",
+      "countryCode": "+7",
+      "phone": "945376803",
+      "email": "enot@gmail.com",
+      "passportNo": "189234",
+      "passportSerial": "19857642",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Мира 7"
+    },
+    {
+      "id": 7,
+      "firstname": "Шахбанова",
+      "lastname": "Зайнаб",
+      "surname": "Шапиевна",
+      "countryCode": "+7",
+      "phone": "9298522305",
+      "email": "shah@gmail.com",
+      "passportNo": "143566",
+      "passportSerial": "132231",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Улица 7"
+    },
+    {
+      "id": 8,
+      "firstname": "Ким",
+      "lastname": "Чен",
+      "surname": "Ын",
+      "countryCode": "+7",
+      "phone": "92888992888",
+      "email": "sobaki@korea.ru",
+      "passportNo": "11111",
+      "passportSerial": "2222222",
+      "createdDate": "...",
+      "city": "Пхеньян",
+      "address": "ул.Бурова 8"
+    },
+    {
+      "id": 9,
+      "firstname": "Альви",
+      "lastname": "Цугаев",
+      "surname": "Якубович",
+      "countryCode": "+7",
+      "phone": "9298522305",
+      "email": "alvi@gmail.com",
+      "passportNo": "143566",
+      "passportSerial": "132231",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Улица 7"
+    },
+    {
+      "id": 10,
+      "firstname": "Хусейн",
+      "lastname": "Классический",
+      "surname": "Хусейнович",
+      "countryCode": "+7",
+      "phone": "9288994560",
+      "email": "husein@gmail.com",
+      "passportNo": "1356872",
+      "passportSerial": "10308u8313",
+      "createdDate": "...",
+      "city": "Грозный",
+      "address": "ул.Трошева 7"
+    }
+  ],
+  "paymentMethods": [
+    {
+      "id": 1,
+      "name": "Наличные"
+    },
+    {
+      "id": 2,
+      "name": "Сбербанк"
+    },
+    {
+      "id": 3,
+      "name": "Сбербанк"
+    },
+    {
+      "id": 4,
+      "name": "Наличные"
+    },
+    {
+      "id": 5,
+      "name": "Сбербанк"
+    },
+    {
+      "id": 6,
+      "name": "Наличные"
+    },
+    {
+      "id": 7,
+      "name": "Наличные"
+    },
+    {
+      "id": 8,
+      "name": "Сбербанк"
+    },
+    {
+      "id": 9,
+      "name": "Наличные"
+    },
+    {
+      "id": 10,
+      "name": "Наличные"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "date": "...",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 1
+    },
+    {
+      "id": 2,
+      "date": "...",
+      "clientId": 2,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 2
+    },
+    {
+      "id": 3,
+      "date": "...",
+      "clientId": 3,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 3
+    },
+    {
+      "id": 4,
+      "date": "...",
+      "clientId": 4,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 4
+    },
+    {
+      "id": 5,
+      "date": "...",
+      "clientId": 5,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 5
+    },
+    {
+      "id": 6,
+      "date": "...",
+      "clientId": 6,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 6
+    },
+    {
+      "id": 7,
+      "date": "...",
+      "clientId": 7,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 7
+    },
+    {
+      "id": 8,
+      "date": "...",
+      "clientId": 8,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 8
+    },
+    {
+      "id": 9,
+      "date": "...",
+      "clientId": 9,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 9
+    }
+    ,{
+      "id": 10,
+      "date": "...",
+      "clientId": 10,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 10
+    }
+  ],
+  "purchases": [
+    {
+      "id": 1,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 1,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 2,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 3,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 4,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 5,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 5,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 6,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 6,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 7,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 7,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 8,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 8,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 9,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 9,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    },
+    {
+      "id": 10,
+      "name": "iPhone 11 Pro Max",
+      "clientId": 10,
+      "price": 30000,
+      "date": "...",
+      "completed": true
+    }
+
+  ]
 }

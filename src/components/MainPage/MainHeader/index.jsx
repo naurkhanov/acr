@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
-import MainWrap from './MainWrap';
-import MainSection from './MainSection';
+import React from 'react';
+import Wrapper from '../../Registration/Wrapper';
 import MainBrand from './MainBrand';
 import AddClientsButton from './AddClientsButton';
-import Wrapper from '../Registration/Wrapper';
+import MainWrap from './MainWrap';
 import MainExport from './MainExport';
 import MainExit from './MainExit';
+import MainSection from './MainSection';
+import { authReset } from '../../../redux/ducks/registration';
 import { useDispatch } from 'react-redux';
-import { authReset } from '../../redux/ducks/registration';
-import SpanExportIcon from './SpanExportIcon';
 
-function Main(props) {
+function MainHeader(props) {
   const dispatch = useDispatch();
-
   const handleClick = () => {
     dispatch(authReset());
   };
-
   return (
-    <MainWrap generalWrapper>
+    <div>
       <MainSection header>
         <Wrapper headerWrap>
           <MainBrand deni>Naurkhanov</MainBrand>
@@ -26,14 +23,13 @@ function Main(props) {
         </Wrapper>
         <Wrapper headerWrap>
           <MainWrap export>
-            <MainExport>Экспорт</MainExport>
-            <SpanExportIcon />
+            <MainExport />
           </MainWrap>
           <MainExit onClick={handleClick}>Exit</MainExit>
         </Wrapper>
       </MainSection>
-    </MainWrap>
+    </div>
   );
 }
 
-export default Main;
+export default MainHeader;
