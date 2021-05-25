@@ -1,21 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import DebtorSearch from './DebtorSearch';
+import DebtorGeneral from './DebtorGeneral';
+import { Route, Switch, useParams } from 'react-router-dom';
+import DebtorIndividInfo from './DebtorIndividInfo';
 
-const DebtorInfoGeneralBlockStyles = styled.div`
+const DebtorWrap = styled.div`
   width: 100%;
-  height: 500px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
-  margin-left: 20px;
-  padding: 20px 20px 0 20px;
 `;
 
-function DebtorInfoGeneralBlock(props) {
+function Index(props) {
   return (
-    <DebtorInfoGeneralBlockStyles>
-      <DebtorSearch />
-    </DebtorInfoGeneralBlockStyles>
+    <DebtorWrap>
+      <Switch>
+        <Route exact path="/main/" component={DebtorGeneral} />
+        <Route exact path="/main/:debtorId?" component={DebtorIndividInfo} />
+      </Switch>
+    </DebtorWrap>
   );
 }
 
-export default DebtorInfoGeneralBlock;
+export default Index;

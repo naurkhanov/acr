@@ -50,7 +50,7 @@ export const loginStart = (login, password) => {
       type: 'auth/started',
     });
 
-    fetch('http://localhost:3005/admin/')
+    fetch('http://localhost:3005/admin')
       .then((response) => response.json())
       .then((json) => {
         const random = Math.random();

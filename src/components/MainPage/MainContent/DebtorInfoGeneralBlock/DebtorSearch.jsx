@@ -9,8 +9,10 @@ const DebtorSearchForm = styled.input`
   padding: 20px 20px 20px 20px;
   outline: #9d65c9;
   border-radius: 5px;
-  border: none;
   margin-top: 11px;
+  border: none;
+  background-color: transparent;
+
   &:focus {
     border: 1px solid #9d65c9;
   }
@@ -20,8 +22,19 @@ const DebtorSearchForm = styled.input`
   }
 `;
 
+const SearchFixed = styled.div`
+  position: sticky;
+  top: 5px;
+  z-index: 1000;
+  background-color: #fff;
+`;
+
 function DebtorSearch(props) {
-  return <DebtorSearchForm type="text" placeholder="Поиск по имени" />;
+  return (
+    <SearchFixed>
+      <DebtorSearchForm type="text" placeholder="Поиск по имени" />
+    </SearchFixed>
+  );
 }
 
 export default DebtorSearch;

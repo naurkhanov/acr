@@ -8,7 +8,8 @@ import RepaidDept from './RepaidDept';
 
 const SidePanelGeneral = styled.div`
   width: 300px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+  height: 450px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   padding: 20px 20px;
 `;
 
