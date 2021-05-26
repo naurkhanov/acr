@@ -33,7 +33,7 @@ const BlockWrap = styled.div`
     & > .debtor_icon {
       margin-left: 10px;
       & > span {
-        color: black;
+        color: green;
       }
     }
   }

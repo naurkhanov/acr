@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger/src';
 import { registration } from './ducks/registration';
 import { debtors } from './ducks/debtors';
+import { individualdebtor } from './ducks/individualdebtor';
 
 const logger = createLogger({
   collapsed: true,
@@ -10,6 +11,6 @@ const logger = createLogger({
 });
 
 export const store = createStore(
-  combineReducers({ registration, debtors }),
+  combineReducers({ registration, debtors, individualdebtor }),
   applyMiddleware(thunk, logger)
 );
