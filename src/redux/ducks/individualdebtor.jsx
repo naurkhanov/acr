@@ -57,6 +57,11 @@ export const individualdebtor = (state = initialState, action) => {
         ...state,
         showModalPayment: !action.payload,
       };
+    case 'modal/payments/close':
+      return {
+        ...state,
+        showModalPayment: !action.payload,
+      };
     default:
       return state;
   }
@@ -134,6 +139,17 @@ export const showPaymentsModal = (paymentsModalShow) => {
     dispatch({
       type: 'change/showModal',
       payload: paymentsModalShow,
+    });
+  };
+};
+
+//закрываем модальное окно
+
+export const closePaymentsModal = (modalClose) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'modal/payments/close',
+      payload: modalClose,
     });
   };
 };

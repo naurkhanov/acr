@@ -42,6 +42,19 @@ const StyledButton = styled.button`
     css`
       background-color: rgba(157, 101, 201, 0.5);
     `}
+  
+  ${(props) =>
+    props.addpayments &&
+    css`
+      width: 170px;
+      height: 60px;
+      background-color: #9d65c9;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      margin-top: 20px;
+    `}
 `;
 
 function Button(props) {

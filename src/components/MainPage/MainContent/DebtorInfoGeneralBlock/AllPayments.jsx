@@ -30,6 +30,9 @@ const AllPaymentsWrap = styled.div`
     font-weight: 400;
     font-size: 18px;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -38,6 +41,8 @@ function AllPayments(props) {
   const paymentsModalShow = useSelector(
     (state) => state.individualdebtor.showModalPayment
   );
+  const payment = useSelector((state) => state.individualdebtor.payments);
+  console.log(payment);
 
   const paymentOpen = useSelector(
     (state) => state.individualdebtor.paymentsOpen
@@ -52,7 +57,7 @@ function AllPayments(props) {
   return (
     <AllPaymentsWrap>
       <div className="AllPaymentsGeneral">
-        <div className="PaymentsTitle">Все платежи(6)</div>
+        <div className="PaymentsTitle">{`Все платежи (6)`}</div>
         <span className="material-icons" onClick={handleOpenPayments}>
           {paymentOpen !== true ? 'chevron_right' : 'expand_more'}
         </span>
