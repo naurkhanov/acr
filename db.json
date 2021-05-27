@@ -154,44 +154,12 @@
     {
       "id": 2,
       "name": "Сбербанк"
-    },
-    {
-      "id": 3,
-      "name": "Сбербанк"
-    },
-    {
-      "id": 4,
-      "name": "Наличные"
-    },
-    {
-      "id": 5,
-      "name": "Сбербанк"
-    },
-    {
-      "id": 6,
-      "name": "Наличные"
-    },
-    {
-      "id": 7,
-      "name": "Наличные"
-    },
-    {
-      "id": 8,
-      "name": "Сбербанк"
-    },
-    {
-      "id": 9,
-      "name": "Наличные"
-    },
-    {
-      "id": 10,
-      "name": "Наличные"
     }
   ],
   "payments": [
     {
       "id": 1,
-      "date": "...",
+      "date": "2019-11-01",
       "clientId": 1,
       "amount": 1000,
       "note": "комментарий к платежу",
@@ -199,76 +167,78 @@
     },
     {
       "id": 2,
-      "date": "...",
+      "date": "2019-12-01",
       "clientId": 2,
-      "amount": 1000,
+      "amount": 2000,
       "note": "комментарий к платежу",
       "methodId": 2
     },
     {
       "id": 3,
-      "date": "...",
+      "date": "2019-13-01",
       "clientId": 3,
-      "amount": 1000,
+      "amount": 3000,
       "note": "комментарий к платежу",
-      "methodId": 3
+      "methodId": 1
     },
     {
       "id": 4,
-      "date": "...",
+      "date": "2019-14-01",
       "clientId": 4,
-      "amount": 1000,
+      "amount": 4000,
       "note": "комментарий к платежу",
-      "methodId": 4
+      "methodId": 2
     },
     {
       "id": 5,
-      "date": "...",
+      "date": "2019-15-01",
       "clientId": 5,
-      "amount": 1000,
+      "amount": 5000,
       "note": "комментарий к платежу",
-      "methodId": 5
+      "methodId": 1
     },
     {
       "id": 6,
-      "date": "...",
+      "date": "2019-16-01",
       "clientId": 6,
-      "amount": 1000,
+      "amount": 6000,
       "note": "комментарий к платежу",
-      "methodId": 6
+      "methodId": 2
     },
     {
       "id": 7,
-      "date": "...",
+      "date": "2019-16-01",
       "clientId": 7,
-      "amount": 1000,
+      "amount": 6000,
       "note": "комментарий к платежу",
-      "methodId": 7
+      "methodId": 1
     },
     {
       "id": 8,
-      "date": "...",
+      "date": "2019-16-01",
       "clientId": 8,
-      "amount": 1000,
+      "amount": 6000,
       "note": "комментарий к платежу",
-      "methodId": 8
+      "methodId": 2
     },
     {
       "id": 9,
-      "date": "...",
+      "date": "2019-16-01",
       "clientId": 9,
-      "amount": 1000,
+      "amount": 6000,
       "note": "комментарий к платежу",
-      "methodId": 9
-    }
-    ,{
+      "methodId": 1
+    },
+    {
       "id": 10,
-      "date": "...",
+      "date": "2019-16-01",
       "clientId": 10,
-      "amount": 1000,
+      "amount": 6000,
       "note": "комментарий к платежу",
-      "methodId": 10
+      "methodId": 2
     }
+
+
   ],
   "purchases": [
     {
@@ -285,7 +255,7 @@
       "clientId": 2,
       "price": 30000,
       "date": "...",
-      "completed": true
+      "completed": false
     },
     {
       "id": 3,
@@ -301,7 +271,7 @@
       "clientId": 4,
       "price": 30000,
       "date": "...",
-      "completed": true
+      "completed": false
     },
     {
       "id": 5,
@@ -317,7 +287,7 @@
       "clientId": 6,
       "price": 30000,
       "date": "...",
-      "completed": true
+      "completed": false
     },
     {
       "id": 7,
@@ -333,7 +303,7 @@
       "clientId": 8,
       "price": 30000,
       "date": "...",
-      "completed": true
+      "completed": false
     },
     {
       "id": 9,
@@ -349,7 +319,7 @@
       "clientId": 10,
       "price": 30000,
       "date": "...",
-      "completed": true
+      "completed": false
     }
 
   ]

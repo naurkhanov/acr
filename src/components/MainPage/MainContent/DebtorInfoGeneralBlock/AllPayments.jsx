@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { paymentsShow } from '../../../../redux/ducks/individualdebtor';
+import {
+  paymentsShow,
+  showPaymentsModal,
+} from '../../../../redux/ducks/individualdebtor';
 
 const AllPaymentsWrap = styled.div`
   display: flex;
@@ -31,12 +34,19 @@ const AllPaymentsWrap = styled.div`
 `;
 
 function AllPayments(props) {
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
+  const paymentsModalShow = useSelector(
+    (state) => state.individualdebtor.showModalPayment
+  );
+
   const paymentOpen = useSelector(
     (state) => state.individualdebtor.paymentsOpen
   );
   const handleOpenPayments = () => {
-    disptach(paymentsShow(paymentOpen));
+    dispatch(paymentsShow(paymentOpen));
+  };
+  const handleShowPaymentsModal = () => {
+    dispatch(showPaymentsModal(paymentsModalShow));
   };
 
   return (
@@ -47,7 +57,9 @@ function AllPayments(props) {
           {paymentOpen !== true ? 'chevron_right' : 'expand_more'}
         </span>
       </div>
-      <div className="addPayments">+ Добавить платёж</div>
+      <div className="addPayments" onClick={handleShowPaymentsModal}>
+        + Добавить платёж
+      </div>
     </AllPaymentsWrap>
   );
 }

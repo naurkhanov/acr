@@ -32,6 +32,12 @@ const StyledButton = styled.button`
     `}
 
   ${(props) =>
+    props.timurkaev &&
+    css`
+      background-color: green;
+    `}
+
+  ${(props) =>
     props.disabled &&
     css`
       background-color: rgba(157, 101, 201, 0.5);
