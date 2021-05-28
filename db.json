@@ -2,7 +2,7 @@
   "admin": {
     "login": "admin",
     "password": "12345",
-    "token":"qwerty1212e12qw3dword1oc1Eqeqeq"
+    "token": "qwerty1212e12qw3dword1oc1Eqeqeq"
   },
   "clients": [
     {
@@ -92,7 +92,8 @@
     {
       "id": 7,
       "firstname": "Шахбанова",
-      "lastname": "Зайнаб",      "surname": "Шапиевна",
+      "lastname": "Зайнаб",
+      "surname": "Шапиевна",
       "countryCode": "+7",
       "phone": "9298522305",
       "email": "shah@gmail.com",
@@ -237,7 +238,6 @@
       "methodId": 2
     }
 
-
   ],
   "purchases": [
     {
@@ -320,6 +320,5 @@
       "date": "...",
       "completed": false
     }
-
   ]
 }

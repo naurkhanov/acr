@@ -42,7 +42,6 @@ function AllPayments(props) {
     (state) => state.individualdebtor.showModalPayment
   );
   const payment = useSelector((state) => state.individualdebtor.payments);
-  console.log(payment);
 
   const paymentOpen = useSelector(
     (state) => state.individualdebtor.paymentsOpen

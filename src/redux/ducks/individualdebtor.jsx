@@ -7,6 +7,7 @@ const initialState = {
   paymentMethods: [],
   paymentMethodsLoading: false,
   showModalPayment: false,
+  addPaymentLoading: false,
 };
 
 // reducer
@@ -61,6 +62,17 @@ export const individualdebtor = (state = initialState, action) => {
       return {
         ...state,
         showModalPayment: !action.payload,
+      };
+    case 'add/payment/start':
+      return {
+        ...state,
+        addPaymentLoading: true,
+      };
+    case 'add/payment/success':
+      return {
+        ...state,
+        payments: action.payload,
+        addPaymentLoading: false,
       };
     default:
       return state;
@@ -151,5 +163,35 @@ export const closePaymentsModal = (modalClose) => {
       type: 'modal/payments/close',
       payload: modalClose,
     });
+  };
+};
+
+//добавляем платёж
+
+export const addpayment = (id, sumPayment, paymentComment, methodPayment) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'add/payment/start',
+    });
+
+    fetch('http://localhost:3005/payments', {
+      method: 'POST',
+      body: JSON.stringify({
+        id: '',
+        date: new Date(),
+        clientId: id,
+        amount: sumPayment,
+        note: paymentComment,
+        methodId: methodPayment,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'add/payment/success',
+          payload: json,
+        });
+      });
   };
 };

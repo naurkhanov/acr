@@ -33,7 +33,7 @@ function TableCell(props) {
       <div>{payments.amount}</div>
       <div>{date?.substr(5, 2)} сентябрь</div>
       <div>{paymentMethod?.name}</div>
-      <div>Остаток скинет на карту</div>
+      <div>{payments.note}</div>
     </TableCellWrap>
   );
 }

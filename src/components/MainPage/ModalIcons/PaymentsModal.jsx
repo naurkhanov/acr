@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { closePaymentsModal } from '../../../redux/ducks/individualdebtor';
+import {
+  addpayment,
+  closePaymentsModal,
+} from '../../../redux/ducks/individualdebtor';
 import Button from '../../Button/button';
 
 const Background = styled.div`
@@ -120,6 +123,21 @@ const ButtonWrap = styled.div`
   justify-content: center;
 `;
 
+const ButtonAdd = styled.button`
+  width: 170px;
+  height: 60px;
+  background-color: #9d65c9;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 20px;
+  border: 1px solid grey;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+`;
+
 function PaymentsModal(props) {
   const dispatch = useDispatch();
   const modalClose = useSelector(
@@ -129,6 +147,18 @@ function PaymentsModal(props) {
 
   const handleClosePaymentsModal = () => {
     dispatch(closePaymentsModal(modalClose));
+  };
+
+  const [sumPayment, setSumPayment] = useState('');
+  const [methodPayment, setMethodPayment] = useState('');
+  const [paymentComment, setPaymentComment] = useState('');
+
+  const handleAddPayment = () => {
+    setSumPayment('');
+    setMethodPayment('');
+    setPaymentComment('');
+
+    dispatch(addpayment(items.id, sumPayment, paymentComment, methodPayment));
   };
 
   return (
@@ -149,18 +179,33 @@ function PaymentsModal(props) {
           />
         </NameInputWrap>
         <SumPaymentsWrap>
-          <input type="text" placeholder="Сумма" />
-          <input type="text" placeholder="Способ оплаты" />
+          <input
+            type="text"
+            placeholder="Сумма"
+            value={sumPayment}
+            onChange={(event) => setSumPayment(event.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Способ оплаты"
+            value={methodPayment}
+            onChange={(event) => setMethodPayment(event.target.value)}
+          />
         </SumPaymentsWrap>
         <CommentWrap>
-          <input type="text" placeholder="Комментарий" />
+          <input
+            type="text"
+            placeholder="Комментарий"
+            value={paymentComment}
+            onChange={(event) => setPaymentComment(event.target.value)}
+          />
         </CommentWrap>
         <TimePay>
           <div className="timePay">Дата оплаты:</div>
           <div className="week">Сегодня</div>
         </TimePay>
         <ButtonWrap>
-          <Button addpayments>Добавить</Button>
+          <ButtonAdd onClick={handleAddPayment}>Добавить</ButtonAdd>
         </ButtonWrap>
       </ModalWrapper>
     </Background>

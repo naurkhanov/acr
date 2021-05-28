@@ -7,7 +7,6 @@ import { individualdebtor } from './ducks/individualdebtor';
 
 const logger = createLogger({
   collapsed: true,
-  diff: true,
 });
 
 export const store = createStore(
