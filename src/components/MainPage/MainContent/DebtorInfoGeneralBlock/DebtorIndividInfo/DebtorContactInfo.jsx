@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const DebtorContactInfoWrap = styled.div`
   display: flex;
@@ -50,20 +51,21 @@ const DebtorContactInfoWrap = styled.div`
 `;
 
 function DebtorContactInfo(props) {
+  const individDebtorInfo = useSelector(
+    (state) => state.individualdebtor.items
+  );
   return (
     <DebtorContactInfoWrap>
       <div className="debtorContactNumber">
         <span className="material-icons">call</span>
         <div className="debtorNumber">
-          {props.individDebtorInfo.countryCode +
-            ' ' +
-            props.individDebtorInfo.phone}
+          {individDebtorInfo.countryCode + ' ' + individDebtorInfo.phone}
         </div>
         <div className="reminder">отправить напоминание</div>
       </div>
       <div className="debtorLocation">
         <span className="material-icons">location_on</span>
-        <div className="debtorAdress">{`г.${props.individDebtorInfo.city}`}</div>
+        <div className="debtorAdress">{`г.${individDebtorInfo.city}`}</div>
       </div>
     </DebtorContactInfoWrap>
   );

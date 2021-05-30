@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 const Debtor = styled.div`
   width: 100%;
   margin-top: 20px;

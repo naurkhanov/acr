@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import DebtorSearch from './DebtorSearch';
 import DebtorInfo from './DebtorInfo';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadDebtors } from '../../../../redux/ducks/debtors';
+import { loadDebtors } from '../../../../../redux/ducks/debtors';
 import ScrollWrap from './ScrollWrap';
 
 const DebtorInfoGeneralBlockStyles = styled.div`
@@ -25,7 +25,7 @@ function DebtorInfoGeneralBlock(props) {
 
   useEffect(() => {
     dispatch(loadDebtors());
-  }, []);
+  }, [dispatch]);
 
   return (
     <DebtorInfoGeneralBlockStyles>

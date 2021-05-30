@@ -5,7 +5,6 @@ import {
   addpayment,
   closePaymentsModal,
 } from '../../../redux/ducks/individualdebtor';
-import Button from '../../Button/button';
 
 const Background = styled.div`
   top: 0;

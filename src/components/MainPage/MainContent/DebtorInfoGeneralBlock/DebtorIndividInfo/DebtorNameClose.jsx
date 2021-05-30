@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const CloseWrap = styled.div`
   display: flex;
@@ -38,15 +39,18 @@ function DebtorNameClose(props) {
   const handleClose = () => {
     history.push('/main');
   };
+  const individDebtorInfo = useSelector(
+    (state) => state.individualdebtor.items
+  );
   return (
     <CloseWrap>
       <div className="nameDone">
         <div className="debtorName">
-          {props.individDebtorInfo.lastname +
+          {individDebtorInfo.lastname +
             ' ' +
-            props.individDebtorInfo.firstname +
+            individDebtorInfo.firstname +
             ' ' +
-            props.individDebtorInfo.surname}
+            individDebtorInfo.surname}
         </div>
         <span className="material-icons">done</span>
       </div>

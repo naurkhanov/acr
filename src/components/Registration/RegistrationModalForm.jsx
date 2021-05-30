@@ -25,8 +25,6 @@ const RegistrationFormPassword = styled(RegistrationFormLogin)`
   font-weight: 300;
 `;
 
-const Eyes = styled.span``;
-
 function RegistrationModalForm(props) {
   return (
     <div>

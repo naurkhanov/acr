@@ -7,9 +7,9 @@
   "clients": [
     {
       "id": 1,
-      "firstname": "Ахмад",
-      "lastname": "Цугаев",
-      "surname": "Якубович",
+      "firstname": "Наурханов",
+      "lastname": "Джамал",
+      "surname": "Хамзатович",
       "countryCode": "+7",
       "phone": "929-892-2305",
       "email": "admin@intocode.ru",
@@ -236,8 +236,31 @@
       "amount": 6000,
       "note": "комментарий к платежу",
       "methodId": 2
+    },
+    {
+      "id": 11,
+      "date": "2021-05-28T21:54:32.451Z",
+      "clientId": 1,
+      "amount": "",
+      "note": "",
+      "methodId": ""
+    },
+    {
+      "id": 12,
+      "date": "2021-05-28T21:54:36.500Z",
+      "clientId": 1,
+      "amount": "",
+      "note": "",
+      "methodId": ""
+    },
+    {
+      "id": 13,
+      "date": "2021-05-29T10:37:34.712Z",
+      "clientId": 1,
+      "amount": "",
+      "note": "",
+      "methodId": ""
     }
-
   ],
   "purchases": [
     {

@@ -6,14 +6,13 @@ import {
   loadIndividualDebtorInfo,
   loadPaymentMethods,
   loadPayments,
-} from '../../../../redux/ducks/individualdebtor';
+} from '../../../../../redux/ducks/individualdebtor';
 import DebtorNameClose from './DebtorNameClose';
 import DebtorContactInfo from './DebtorContactInfo';
 import DebtorPayments from './DebtorPayments';
 import AllPayments from './AllPayments';
 import PaymentsList from './PaymentsList';
 import { CSSTransition } from 'react-transition-group';
-import PaymentsModal from '../../ModalIcons/PaymentsModal';
 
 const DebtorIndividInfoWrap = styled.div`
   width: 100%;
@@ -35,9 +34,7 @@ const DebtorIndividInfoWrap = styled.div`
 function DebtorIndividInfo(props) {
   const dispatch = useDispatch();
   const debtorId = useParams().debtorId;
-  const individDebtorInfo = useSelector(
-    (state) => state.individualdebtor.items
-  );
+
   const paymentsOpen = useSelector(
     (state) => state.individualdebtor.paymentsOpen
   );
@@ -56,8 +53,8 @@ function DebtorIndividInfo(props) {
 
   return (
     <DebtorIndividInfoWrap>
-      <DebtorNameClose individDebtorInfo={individDebtorInfo} />
-      <DebtorContactInfo individDebtorInfo={individDebtorInfo} />
+      <DebtorNameClose />
+      <DebtorContactInfo />
       <DebtorPayments />
       <AllPayments />
       <CSSTransition in={paymentsOpen} unmountOnExit>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   paymentsShow,
   showPaymentsModal,
-} from '../../../../redux/ducks/individualdebtor';
+} from '../../../../../redux/ducks/individualdebtor';
 
 const AllPaymentsWrap = styled.div`
   display: flex;
@@ -41,7 +41,6 @@ function AllPayments(props) {
   const paymentsModalShow = useSelector(
     (state) => state.individualdebtor.showModalPayment
   );
-  const payment = useSelector((state) => state.individualdebtor.payments);
 
   const paymentOpen = useSelector(
     (state) => state.individualdebtor.paymentsOpen
