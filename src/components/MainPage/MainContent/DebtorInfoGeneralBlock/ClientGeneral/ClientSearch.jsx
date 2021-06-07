@@ -9,7 +9,7 @@ const DebtorSearchForm = styled.input`
   padding: 20px 20px 20px 20px;
   outline: #9d65c9;
   border-radius: 5px;
-  margin-top: 11px;
+
   border: none;
   background-color: transparent;
 
@@ -29,7 +29,7 @@ const SearchFixed = styled.div`
   background-color: #fff;
 `;
 
-function DebtorSearch(props) {
+function ClientSearch(props) {
   return (
     <SearchFixed>
       <DebtorSearchForm type="text" placeholder="Поиск по имени" />
@@ -37,4 +37,4 @@ function DebtorSearch(props) {
   );
 }
 
-export default DebtorSearch;
+export default ClientSearch;

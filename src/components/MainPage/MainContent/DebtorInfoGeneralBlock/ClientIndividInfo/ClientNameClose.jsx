@@ -34,23 +34,23 @@ const CloseWrap = styled.div`
   }
 `;
 
-function DebtorNameClose(props) {
+function ClientNameClose(props) {
   const history = useHistory();
   const handleClose = () => {
     history.push('/main');
   };
-  const individDebtorInfo = useSelector(
-    (state) => state.individualdebtor.items
+  const individClientInfo = useSelector(
+    (state) => state.individualclient.items
   );
   return (
     <CloseWrap>
       <div className="nameDone">
         <div className="debtorName">
-          {individDebtorInfo.lastname +
+          {individClientInfo.lastname +
             ' ' +
-            individDebtorInfo.firstname +
+          individClientInfo.firstname +
             ' ' +
-            individDebtorInfo.surname}
+          individClientInfo.surname}
         </div>
         <span className="material-icons">done</span>
       </div>
@@ -63,4 +63,4 @@ function DebtorNameClose(props) {
   );
 }
 
-export default DebtorNameClose;
+export default ClientNameClose;

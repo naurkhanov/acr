@@ -1,5 +1,5 @@
 import React from 'react';
-import LeftSidePanel from './LeftContent/leftSidePanel';
+import LeftSidePanel from './FilterBlock/leftSidePanel';
 import styled from 'styled-components';
 import DebtorInfoGeneralBlock from './DebtorInfoGeneralBlock';
 

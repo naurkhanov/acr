@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const DebtorPaymentsWrap = styled.div`
   margin-top: 30px;
@@ -11,15 +12,20 @@ const DebtorPaymentsWrap = styled.div`
   }
 `;
 
-function DebtorPayments(props) {
+function ClientPayments(props) {
+
+  const client = useSelector(state=>state.individualclient.items)
+
+
+
   return (
     <DebtorPaymentsWrap>
       <div>Оплатил за последнюю покупку: 24500₽</div>
-      <div>Осталось к оплате: 10000₽</div>
+      <div>Осталось к оплате: {client.indebtedness}</div>
       <div>Следующая оплата: через 20 дней</div>
-      <div>Оплатил за все время: 120000₽</div>
+      <div>Оплатил за все время: {client.totalPaymentsAmount}</div>
     </DebtorPaymentsWrap>
   );
 }
 
-export default DebtorPayments;
+export default ClientPayments;

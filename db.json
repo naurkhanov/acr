@@ -7,9 +7,9 @@
   "clients": [
     {
       "id": 1,
-      "firstname": "Наурханов",
-      "lastname": "Джамал",
-      "surname": "Хамзатович",
+      "firstname": "Ахьмад",
+      "lastname": "Кудузов",
+      "surname": "Отчество",
       "countryCode": "+7",
       "phone": "929-892-2305",
       "email": "admin@intocode.ru",
@@ -63,12 +63,12 @@
     },
     {
       "id": 5,
-      "firstname": "Дени",
-      "lastname": "Наурханов",
+      "firstname": "Мохьмад",
+      "lastname": "Тимуркаев",
       "surname": "Хамзатович",
       "countryCode": "+7",
       "phone": "929-852-2305",
-      "email": "nrh843@gmail.com",
+      "email": "timurk843@gmail.com",
       "passportNo": "143566",
       "passportSerial": "132231",
       "createdDate": "...",
@@ -91,8 +91,8 @@
     },
     {
       "id": 7,
-      "firstname": "Шахбанова",
-      "lastname": "Зайнаб",
+      "firstname": "Зайнаб",
+      "lastname": "Шахбанова",
       "surname": "Шапиевна",
       "countryCode": "+7",
       "phone": "9298522305",
@@ -105,8 +105,8 @@
     },
     {
       "id": 8,
-      "firstname": "Ким",
-      "lastname": "Чен",
+      "firstname": "Чен",
+      "lastname": "Ким",
       "surname": "Ын",
       "countryCode": "+7",
       "phone": "92888992888",
@@ -159,189 +159,208 @@
   "payments": [
     {
       "id": 1,
-      "date": "2019-11-01",
+      "date": "2019-02-20",
       "clientId": 1,
-      "amount": 1000,
-      "note": "комментарий к платежу",
-      "methodId": 1
+      "amount": 10000,
+      "note": "Остальное потом докину",
+      "methodId": 1,
+      "purchaseId": 1
     },
     {
       "id": 2,
-      "date": "2019-12-01",
+      "date": "2019-04-10",
       "clientId": 2,
-      "amount": 2000,
-      "note": "комментарий к платежу",
-      "methodId": 2
+      "amount": 25000,
+      "note": "Половину ток скину",
+      "methodId": 2,
+      "purchaseId": 2
     },
     {
       "id": 3,
-      "date": "2019-13-01",
+      "date": "2019-04-20",
       "clientId": 3,
-      "amount": 3000,
+      "amount": 40000,
       "note": "комментарий к платежу",
-      "methodId": 1
+      "methodId": 1,
+      "purchaseId": 3
     },
     {
       "id": 4,
-      "date": "2019-14-01",
+      "date": "2019-05-15",
       "clientId": 4,
-      "amount": 4000,
+      "amount": 50000,
       "note": "комментарий к платежу",
-      "methodId": 2
+      "methodId": 2,
+      "purchaseId": 4
     },
     {
       "id": 5,
-      "date": "2019-15-01",
+      "date": "2019-06-15",
       "clientId": 5,
-      "amount": 5000,
+      "amount": 15000,
       "note": "комментарий к платежу",
-      "methodId": 1
+      "methodId": 1,
+      "purchaseId": 5
     },
     {
       "id": 6,
-      "date": "2019-16-01",
+      "date": "2019-06-28",
       "clientId": 6,
-      "amount": 6000,
+      "amount": 35000,
       "note": "комментарий к платежу",
-      "methodId": 2
+      "methodId": 2,
+      "purchaseId": 6
     },
     {
       "id": 7,
-      "date": "2019-16-01",
+      "date": "2019-07-25",
       "clientId": 7,
-      "amount": 6000,
+      "amount": 8000,
       "note": "комментарий к платежу",
-      "methodId": 1
+      "methodId": 1,
+      "purchaseId": 7
     },
     {
       "id": 8,
-      "date": "2019-16-01",
+      "date": "2019-08-17",
       "clientId": 8,
-      "amount": 6000,
+      "amount": 60000,
       "note": "комментарий к платежу",
-      "methodId": 2
+      "methodId": 2,
+      "purchaseId": 8
     },
     {
       "id": 9,
-      "date": "2019-16-01",
+      "date": "2019-09-01",
       "clientId": 9,
-      "amount": 6000,
+      "amount": 50000,
       "note": "комментарий к платежу",
-      "methodId": 1
+      "methodId": 1,
+      "purchaseId": 9
     },
     {
       "id": 10,
-      "date": "2019-16-01",
+      "date": "2019-09-27",
       "clientId": 10,
-      "amount": 6000,
+      "amount": 59000,
       "note": "комментарий к платежу",
-      "methodId": 2
+      "methodId": 2,
+      "purchaseId": 10
     },
     {
       "id": 11,
-      "date": "2021-05-28T21:54:32.451Z",
+      "date": "2019-09-27",
       "clientId": 1,
-      "amount": "",
-      "note": "",
-      "methodId": ""
+      "amount": 10000,
+      "note": "комментарий к платежу",
+      "methodId": 2,
+      "purchaseId": 1
     },
     {
       "id": 12,
-      "date": "2021-05-28T21:54:36.500Z",
-      "clientId": 1,
-      "amount": "",
-      "note": "",
-      "methodId": ""
+      "date": "2019-04-15",
+      "clientId": 2,
+      "amount": 10000,
+      "note": "остаток скину после зарплаты",
+      "methodId": 1
     },
     {
       "id": 13,
-      "date": "2021-05-29T10:37:34.712Z",
+      "date": "2021-06-07",
       "clientId": 1,
-      "amount": "",
-      "note": "",
-      "methodId": ""
+      "amount": 5000,
+      "note": "Проверка",
+      "methodId": 1
     }
   ],
   "purchases": [
     {
       "id": 1,
-      "name": "iPhone 11 Pro Max",
+      "name": "Утюг HITECH",
       "clientId": 1,
-      "price": 30000,
-      "date": "...",
+      "price": 20000,
+      "date": "2019-01-20",
       "completed": true
     },
     {
       "id": 2,
-      "name": "iPhone 11 Pro Max",
+      "name": "Ноутбук Acer",
       "clientId": 2,
-      "price": 30000,
-      "date": "...",
+      "price": 50000,
+      "date": "2019-03-01",
       "completed": false
     },
     {
       "id": 3,
-      "name": "iPhone 11 Pro Max",
+      "name": "Iphone 11 pro",
       "clientId": 3,
-      "price": 30000,
-      "date": "...",
+      "price": 50000,
+      "date": "2019-04-01",
       "completed": true
     },
     {
       "id": 4,
       "name": "iPhone 11 Pro Max",
       "clientId": 4,
-      "price": 30000,
-      "date": "...",
+      "price": 60000,
+      "date": "2019-04-25",
       "completed": false
     },
     {
       "id": 5,
-      "name": "iPhone 11 Pro Max",
+      "name": "Путёвка в Казахстан",
       "clientId": 5,
       "price": 30000,
-      "date": "...",
+      "date": "2019-05-10",
       "completed": true
     },
     {
       "id": 6,
-      "name": "iPhone 11 Pro Max",
+      "name": "iPad mini ",
       "clientId": 6,
-      "price": 30000,
-      "date": "...",
+      "price": 55000,
+      "date": "2019-06-10",
       "completed": false
     },
     {
       "id": 7,
-      "name": "iPhone 11 Pro Max",
+      "name": "AirPods Pro ",
       "clientId": 7,
-      "price": 30000,
-      "date": "...",
+      "price": 19000,
+      "date": "2019-07-01",
       "completed": true
     },
     {
       "id": 8,
-      "name": "iPhone 11 Pro Max",
+      "name": "ASUS ROG",
       "clientId": 8,
-      "price": 30000,
-      "date": "...",
+      "price": 100000,
+      "date": "2019-07-25",
       "completed": false
     },
     {
       "id": 9,
-      "name": "iPhone 11 Pro Max",
+      "name": "Свадьба",
       "clientId": 9,
-      "price": 30000,
-      "date": "...",
+      "price": 70000,
+      "date": "2019-08-20",
       "completed": true
     },
     {
       "id": 10,
-      "name": "iPhone 11 Pro Max",
+      "name": "iPhone 10",
       "clientId": 10,
-      "price": 30000,
-      "date": "...",
+      "price": 59000,
+      "date": "2019-09-10",
       "completed": false
+    },
+    {
+      "id": 11,
+      "name": "Iphone ",
+      "clientId": 1,
+      "price": 20000,
+      "date": "2019-01-20",
+      "completed": true
     }
   ]
 }

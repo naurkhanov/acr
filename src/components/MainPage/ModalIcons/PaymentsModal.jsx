@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addpayment,
-  closePaymentsModal,
-} from '../../../redux/ducks/individualdebtor';
+  closePaymentsModal
+} from '../../../redux/ducks/individualclient';
+import dayjs from 'dayjs';
 
 const Background = styled.div`
   top: 0;
@@ -140,10 +141,10 @@ const ButtonAdd = styled.button`
 function PaymentsModal(props) {
   const dispatch = useDispatch();
   const modalClose = useSelector(
-    (state) => state.individualdebtor.showModalPayment
+    (state) => state.individualclient.showModalPayment
   );
-  const items = useSelector((state) => state.individualdebtor.items);
-
+  const items = useSelector((state) => state.individualclient.items);
+  console.log(items);
   const handleClosePaymentsModal = () => {
     dispatch(closePaymentsModal(modalClose));
   };
@@ -151,13 +152,13 @@ function PaymentsModal(props) {
   const [sumPayment, setSumPayment] = useState('');
   const [methodPayment, setMethodPayment] = useState('');
   const [paymentComment, setPaymentComment] = useState('');
-
+  const date = dayjs().format('YYYY-MM-DD')
   const handleAddPayment = () => {
     setSumPayment('');
     setMethodPayment('');
     setPaymentComment('');
 
-    dispatch(addpayment(items.id, sumPayment, paymentComment, methodPayment));
+    dispatch(addpayment(items.id, sumPayment, paymentComment, methodPayment,date));
   };
 
   return (

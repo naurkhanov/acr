@@ -14,10 +14,6 @@ const RegistrationFormLogin = styled.input`
   &:focus {
     border: 1px solid #9d65c9;
   }
-
-  &:hover {
-    border: 1px solid #9d65c9;
-  }
 `;
 
 const RegistrationFormPassword = styled(RegistrationFormLogin)`

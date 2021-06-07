@@ -50,25 +50,25 @@ const DebtorContactInfoWrap = styled.div`
   }
 `;
 
-function DebtorContactInfo(props) {
-  const individDebtorInfo = useSelector(
-    (state) => state.individualdebtor.items
+function ClientContactInfo(props) {
+  const individClientInfo = useSelector(
+    (state) => state.individualclient.items
   );
   return (
     <DebtorContactInfoWrap>
       <div className="debtorContactNumber">
         <span className="material-icons">call</span>
         <div className="debtorNumber">
-          {individDebtorInfo.countryCode + ' ' + individDebtorInfo.phone}
+          {individClientInfo.countryCode + ' ' + individClientInfo.phone}
         </div>
         <div className="reminder">отправить напоминание</div>
       </div>
       <div className="debtorLocation">
         <span className="material-icons">location_on</span>
-        <div className="debtorAdress">{`г.${individDebtorInfo.city}`}</div>
+        <div className="debtorAdress">{`г.${individClientInfo.city}`}</div>
       </div>
     </DebtorContactInfoWrap>
   );
 }
 
-export default DebtorContactInfo;
+export default ClientContactInfo;

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 const initialState = {
   items: [],
   loadIndividualDebtors: false,
@@ -11,14 +13,14 @@ const initialState = {
 };
 
 // reducer
-export const individualdebtor = (state = initialState, action) => {
+export const individualclient = (state = initialState, action) => {
   switch (action.type) {
-    case 'load/loadIndividualDebtorInfo/start':
+    case 'load/loadIndividualClientInfo/start':
       return {
         ...state,
         loadIndividualDebtors: true,
       };
-    case 'load/loadIndividualDebtorInfo/success':
+    case 'load/loadIndividualClientInfo/success':
       return {
         ...state,
         loadIndividualDebtors: false,
@@ -71,7 +73,7 @@ export const individualdebtor = (state = initialState, action) => {
     case 'add/payment/success':
       return {
         ...state,
-        payments: action.payload,
+        payments: [...state.payments,action.payload],
         addPaymentLoading: false,
       };
     default:
@@ -85,13 +87,13 @@ export const individualdebtor = (state = initialState, action) => {
 export const loadIndividualDebtorInfo = (debtorId) => {
   return (dispatch) => {
     dispatch({
-      type: 'load/loadIndividualDebtorInfo/start',
+      type: 'load/loadIndividualClientInfo/start',
     });
-    fetch(`http://localhost:3005/clients/${debtorId}`)
+    fetch(`http://localhost:3005/clientsides/${debtorId}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: 'load/loadIndividualDebtorInfo/success',
+          type: 'load/loadIndividualClientInfo/success',
           payload: json,
         });
       });
@@ -168,21 +170,21 @@ export const closePaymentsModal = (modalClose) => {
 
 //добавляем платёж
 
-export const addpayment = (id, sumPayment, paymentComment, methodPayment) => {
+export const addpayment = (id, sumPayment, paymentComment, methodPayment,date) => {
   return (dispatch) => {
     dispatch({
       type: 'add/payment/start',
     });
 
-    fetch('http://localhost:3005/payments', {
+    fetch(`http://localhost:3005/payments`, {
       method: 'POST',
       body: JSON.stringify({
         id: '',
-        date: new Date(),
+        date: date,
         clientId: id,
-        amount: sumPayment,
+        amount: parseInt(sumPayment),
         note: paymentComment,
-        methodId: methodPayment,
+        methodId: parseInt(methodPayment),
       }),
       headers: { 'Content-Type': 'application/json' },
     })

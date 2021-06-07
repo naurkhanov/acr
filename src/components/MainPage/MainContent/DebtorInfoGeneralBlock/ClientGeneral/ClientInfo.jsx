@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { clients, loadPayments } from '../../../../../redux/ducks/clients';
+import { useDispatch, useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 const Debtor = styled.div`
   width: 100%;
   margin-top: 20px;
@@ -51,8 +54,18 @@ const BlockWrap = styled.div`
   }
 `;
 
-function DebtorInfo(props) {
-  const debtorId = props.debtor.id;
+function ClientInfo(props) {
+  const dispatch = useDispatch()
+  const debtorId = props.clients.id;
+  const payments = useSelector(state=>state.clients.payments)
+  const paymentsFilter = payments.reverse().find(item=>item.clientId === debtorId)
+  const nowTime = parseInt(dayjs().format('DD'))
+  const paymentDate = parseInt(dayjs(paymentsFilter?.date).format('DD'))
+
+
+  useEffect(()=>{
+    dispatch(loadPayments())
+  },[dispatch])
 
   return (
     <NavLink to={`main/${debtorId}`}>
@@ -60,20 +73,20 @@ function DebtorInfo(props) {
         <BlockWrap>
           <div className="debtorAndIcon">
             <div className="debtorTitle">
-              {props.debtor.lastname +
+              {props.clients.lastname +
                 ' ' +
-                props.debtor.firstname +
+                props.clients.firstname +
                 ' ' +
-                props.debtor.surname}
+                props.clients.surname}
             </div>
             <div className="debtor_icon">
               <span className="material-icons">done</span>
             </div>
           </div>
           <div className="lastPaymentTitle">
-            Последня оплата: 18 дней назад на сумму 15000₽
+            Последня оплата: {  paymentsFilter?.difference-nowTime} дней  назад на сумму {paymentsFilter?.amount}
           </div>
-          <div className="leftPaymentTitle">Осталось к оплате: 40000₽</div>
+          <div className="leftPaymentTitle">Осталось к оплате: {props.clients.indebtedness}</div>
         </BlockWrap>
         <div className="strelka">→</div>
       </Debtor>
@@ -81,4 +94,4 @@ function DebtorInfo(props) {
   );
 }
 
-export default DebtorInfo;
+export default ClientInfo;

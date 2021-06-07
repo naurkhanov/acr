@@ -9,8 +9,9 @@ import RepaidDept from './RepaidDept';
 const SidePanelGeneral = styled.div`
   width: 300px;
   height: 450px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px  rgba(0, 0, 0, 0.15);
   padding: 20px 20px;
+  border-radius: 10px;
 `;
 
 function LeftSidePanel(props) {
