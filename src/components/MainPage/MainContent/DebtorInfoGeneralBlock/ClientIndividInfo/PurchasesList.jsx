@@ -1,10 +1,11 @@
 import React from 'react';
-import TableCellPayments from './TableCellPayments';
 import { useSelector } from 'react-redux';
+import TableCellPurchase from './TableCellPurchase';
 import { PaymentsListWrap } from './styled';
 
-function PaymentsList(props) {
-  const payments = useSelector((state) => state.individualclient.payments);
+function PurchasesList(props) {
+  const purchases = useSelector((state) => state.individualclient.purchases);
+  console.log(purchases);
   return (
     <PaymentsListWrap>
       <table>
@@ -13,7 +14,7 @@ function PaymentsList(props) {
             <th>№</th>
             <th>Сумма</th>
             <th>Дата</th>
-            <th>Способ</th>
+            <th>Название</th>
             <th>Комментарии</th>
           </tr>
         </thead>
@@ -21,8 +22,12 @@ function PaymentsList(props) {
       <div className="scroll-table-body">
         <table>
           <tbody>
-            {payments.map((item, index) => (
-              <TableCellPayments payment={item} index={index} />
+            {purchases.map((purchase, index) => (
+              <TableCellPurchase
+                purchase={purchase}
+                index={index}
+                key={purchase.id}
+              />
             ))}
           </tbody>
         </table>
@@ -31,4 +36,4 @@ function PaymentsList(props) {
   );
 }
 
-export default PaymentsList;
+export default PurchasesList;

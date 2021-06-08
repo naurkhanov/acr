@@ -5,11 +5,14 @@ const initialState = {
   loadIndividualDebtors: false,
   paymentsOpen: false,
   payments: [],
+  purchases: [],
   loadPayments: false,
   paymentMethods: [],
   paymentMethodsLoading: false,
   showModalPayment: false,
   addPaymentLoading: false,
+  purchaseListOpen: false,
+  showModalPurchase: false,
 };
 
 // reducer
@@ -73,8 +76,33 @@ export const individualclient = (state = initialState, action) => {
     case 'add/payment/success':
       return {
         ...state,
-        payments: [...state.payments,action.payload],
+        payments: [...state.payments, action.payload],
         addPaymentLoading: false,
+      };
+    case 'purchaseList/open':
+      return {
+        ...state,
+        purchaseListOpen: !action.payload,
+      };
+    case 'load/client/purchase/success':
+      return {
+        ...state,
+        purchases: action.payload,
+      };
+    case 'purchase/modal/open':
+      return {
+        ...state,
+        showModalPurchase: !action.payload,
+      };
+    case 'close/purchase/modal':
+      return {
+        ...state,
+        showModalPurchase: false,
+      };
+    case 'payments/add/success':
+      return {
+        ...state,
+        purchases: [...state.purchases, action.payload],
       };
     default:
       return state;
@@ -159,18 +187,24 @@ export const showPaymentsModal = (paymentsModalShow) => {
 
 //закрываем модальное окно
 
-export const closePaymentsModal = (modalClose) => {
+export const closePaymentsModal = (closeOpen) => {
   return (dispatch) => {
     dispatch({
       type: 'modal/payments/close',
-      payload: modalClose,
+      payload: closeOpen,
     });
   };
 };
 
 //добавляем платёж
 
-export const addpayment = (id, sumPayment, paymentComment, methodPayment,date) => {
+export const addpayment = (
+  id,
+  sumPayment,
+  paymentComment,
+  methodPayment,
+  date
+) => {
   return (dispatch) => {
     dispatch({
       type: 'add/payment/start',
@@ -192,6 +226,92 @@ export const addpayment = (id, sumPayment, paymentComment, methodPayment,date) =
       .then((json) => {
         dispatch({
           type: 'add/payment/success',
+          payload: json,
+        });
+      });
+  };
+};
+
+//открываем покупки
+
+export const openPurchaseList = (purchaseOpen) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'purchaseList/open',
+      payload: purchaseOpen,
+    });
+  };
+};
+
+//подгрузка покупок определенного клиента
+
+export const loadClientPurchases = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'load/client/purchase/start',
+    });
+    fetch(`http://localhost:3005/purchases/${id}`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'load/client/purchase/success',
+          payload: json,
+        });
+      });
+  };
+};
+
+//закрытие модального окна добавления платежей
+
+export const closePurchaseModal = (modalclose) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'close/purchase/modal',
+      payload: modalclose,
+    });
+  };
+};
+
+//открытие модального окна
+export const showPurchaseModal = (purchasesOpen) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'purchase/modal/open',
+      payload: purchasesOpen,
+    });
+  };
+};
+
+//добавление покупок
+
+export const addpurchases = (
+  id,
+  purchasePrice,
+  namePurchase,
+  purchaseComment,
+  date
+) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'purchase/add/start',
+    });
+    fetch(`http://localhost:3005/purchases`, {
+      method: 'POST',
+      body: JSON.stringify({
+        id: '',
+        name: namePurchase,
+        clientId: id,
+        price: parseInt(purchasePrice),
+        date: parseInt(date),
+        completed: true,
+        note: purchaseComment,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'payments/add/success',
           payload: json,
         });
       });

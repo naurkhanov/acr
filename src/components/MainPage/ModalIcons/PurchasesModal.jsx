@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  addpayment,
-  closePaymentsModal,
+  addpurchase,
+  addpurchases,
+  closePurchaseModal,
 } from '../../../redux/ducks/individualclient';
 import dayjs from 'dayjs';
 
@@ -138,28 +139,25 @@ const ButtonAdd = styled.button`
   border-radius: 5px;
 `;
 
-function PaymentsModal(props) {
+function PurchasesModal(props) {
   const dispatch = useDispatch();
-  const modalClose = useSelector(
-    (state) => state.individualclient.showModalPayment
-  );
   const items = useSelector((state) => state.individualclient.items);
-  console.log(items);
-  const handleClosePaymentsModal = () => {
-    dispatch(closePaymentsModal(modalClose));
+
+  const handleClosePurchaseModal = () => {
+    dispatch(closePurchaseModal());
   };
 
-  const [sumPayment, setSumPayment] = useState('');
-  const [methodPayment, setMethodPayment] = useState('');
-  const [paymentComment, setPaymentComment] = useState('');
+  const [purchasePrice, setPurchasePrice] = useState('');
+  const [namePurchase, setNamePurchase] = useState('');
+  const [purchaseComment, setPurchaseComment] = useState('');
   const date = dayjs().format('YYYY-MM-DD');
-  const handleAddPayment = () => {
-    setSumPayment('');
-    setMethodPayment('');
-    setPaymentComment('');
+  const handleAddPurchase = () => {
+    setPurchasePrice('');
+    setNamePurchase('');
+    setPurchaseComment('');
 
     dispatch(
-      addpayment(items.id, sumPayment, paymentComment, methodPayment, date)
+      addpurchases(items.id, purchasePrice, namePurchase, purchaseComment, date)
     );
   };
 
@@ -167,8 +165,8 @@ function PaymentsModal(props) {
     <Background>
       <ModalWrapper>
         <ModalHeaderWrap>
-          <div>Добавить платёж</div>
-          <span className="material-icons" onClick={handleClosePaymentsModal}>
+          <div>Добавить покупку</div>
+          <span className="material-icons" onClick={handleClosePurchaseModal}>
             close
           </span>
         </ModalHeaderWrap>
@@ -183,23 +181,23 @@ function PaymentsModal(props) {
         <SumPaymentsWrap>
           <input
             type="text"
-            placeholder="Сумма"
-            value={sumPayment}
-            onChange={(event) => setSumPayment(event.target.value)}
+            placeholder="Цена"
+            value={purchasePrice}
+            onChange={(event) => setPurchasePrice(event.target.value)}
           />
           <input
             type="text"
-            placeholder="Способ оплаты"
-            value={methodPayment}
-            onChange={(event) => setMethodPayment(event.target.value)}
+            placeholder="Название товара"
+            value={namePurchase}
+            onChange={(event) => setNamePurchase(event.target.value)}
           />
         </SumPaymentsWrap>
         <CommentWrap>
           <input
             type="text"
             placeholder="Комментарий"
-            value={paymentComment}
-            onChange={(event) => setPaymentComment(event.target.value)}
+            value={purchaseComment}
+            onChange={(event) => setPurchaseComment(event.target.value)}
           />
         </CommentWrap>
         <TimePay>
@@ -207,11 +205,11 @@ function PaymentsModal(props) {
           <div className="week">Сегодня</div>
         </TimePay>
         <ButtonWrap>
-          <ButtonAdd onClick={handleAddPayment}>Добавить</ButtonAdd>
+          <ButtonAdd onClick={handleAddPurchase}>Добавить</ButtonAdd>
         </ButtonWrap>
       </ModalWrapper>
     </Background>
   );
 }
 
-export default PaymentsModal;
+export default PurchasesModal;

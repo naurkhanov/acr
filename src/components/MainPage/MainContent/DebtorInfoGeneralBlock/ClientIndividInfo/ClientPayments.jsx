@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 
 const DebtorPaymentsWrap = styled.div`
   margin-top: 30px;
@@ -13,16 +14,19 @@ const DebtorPaymentsWrap = styled.div`
 `;
 
 function ClientPayments(props) {
+  const client = useSelector((state) => state.individualclient.items);
+  const purchase = useSelector((state) => state.individualclient.purchases);
+  const payments = useSelector((state) => state.individualclient.payments);
+  const lastPayment = payments[payments.length - 1];
+  const nowDate = dayjs().format('YYYY-MM-DD');
+  const lastPaymentDate = parseInt(dayjs(lastPayment?.date).format('DD'));
 
-  const client = useSelector(state=>state.individualclient.items)
-
-
-
+  console.log(lastPaymentDate);
   return (
     <DebtorPaymentsWrap>
-      <div>Оплатил за последнюю покупку: 24500₽</div>
+      <div>Оплатил за последнюю покупку: {lastPayment?.amount}</div>
       <div>Осталось к оплате: {client.indebtedness}</div>
-      <div>Следующая оплата: через 20 дней</div>
+      <div>Следующая оплата: через {30 - lastPaymentDate} дня</div>
       <div>Оплатил за все время: {client.totalPaymentsAmount}</div>
     </DebtorPaymentsWrap>
   );

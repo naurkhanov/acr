@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  paymentsShow,
-  showPaymentsModal,
+  openPurchaseList,
+  showPurchaseModal,
 } from '../../../../../redux/ducks/individualclient';
 
 const AllPaymentsWrap = styled.div`
   display: flex;
-  margin-top: 40px;
+  margin-top: 5px;
   justify-content: space-between;
 
   & > .AllPaymentsGeneral {
@@ -18,6 +18,7 @@ const AllPaymentsWrap = styled.div`
     & > .PaymentsTitle {
       font-weight: 500;
       font-size: 18px;
+      margin-left: 1px;
     }
 
     & > span {
@@ -25,7 +26,7 @@ const AllPaymentsWrap = styled.div`
     }
   }
 
-  & > .addPayments {
+  & > .addPurchase {
     color: #5d54a4;
     font-weight: 400;
     font-size: 18px;
@@ -39,32 +40,31 @@ const AllPaymentsWrap = styled.div`
 function AllPayments(props) {
   const dispatch = useDispatch();
   const paymentsModalShow = useSelector(
-    (state) => state.individualclient.showModalPayment
+    (state) => state.individualclient.showModalPurchase
   );
-  const paymentsAmount = useSelector(
-    (state) => state.individualclient.payments
-  ).length;
+  const purchase = useSelector((state) => state.individualclient.purchases);
 
-  const paymentOpen = useSelector(
-    (state) => state.individualclient.paymentsOpen
+  const purchaseOpen = useSelector(
+    (state) => state.individualclient.purchaseListOpen
   );
-  const handleOpenPayments = () => {
-    dispatch(paymentsShow(paymentOpen));
+  const handleOpenPurchase = () => {
+    dispatch(openPurchaseList(purchaseOpen));
   };
-  const handleShowPaymentsModal = () => {
-    dispatch(showPaymentsModal(paymentsModalShow));
+
+  const handleShowPurchaseModal = () => {
+    dispatch(showPurchaseModal(paymentsModalShow));
   };
 
   return (
     <AllPaymentsWrap>
       <div className="AllPaymentsGeneral">
-        <div className="PaymentsTitle">{`Все платежи (${paymentsAmount})`}</div>
-        <span className="material-icons" onClick={handleOpenPayments}>
-          {paymentOpen !== true ? 'chevron_right' : 'expand_more'}
+        <div className="PaymentsTitle">{`Все покупки (${purchase.length})`}</div>
+        <span className="material-icons" onClick={handleOpenPurchase}>
+          {purchaseOpen !== true ? 'chevron_right' : 'expand_more'}
         </span>
       </div>
-      <div className="addPayments" onClick={handleShowPaymentsModal}>
-        + Добавить платёж
+      <div className="addPurchase" onClick={handleShowPurchaseModal}>
+        + Добавить покупку
       </div>
     </AllPaymentsWrap>
   );

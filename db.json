@@ -65,7 +65,7 @@
       "id": 5,
       "firstname": "Мохьмад",
       "lastname": "Тимуркаев",
-      "surname": "Хамзатович",
+      "surname": "Русланович",
       "countryCode": "+7",
       "phone": "929-852-2305",
       "email": "timurk843@gmail.com",
@@ -271,6 +271,54 @@
       "amount": 5000,
       "note": "Проверка",
       "methodId": 1
+    },
+    {
+      "id": 14,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "скинул косарь",
+      "methodId": 1
+    },
+    {
+      "id": 15,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "Извини что задержал бабки",
+      "methodId": 2
+    },
+    {
+      "id": 16,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 3000,
+      "note": "скинул на сбер",
+      "methodId": 2
+    },
+    {
+      "id": 17,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 2000,
+      "note": "отдал через друга",
+      "methodId": 1
+    },
+    {
+      "id": 18,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 4000,
+      "note": "часть зарплаты",
+      "methodId": 2
+    },
+    {
+      "id": 19,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "Проверка оплаты",
+      "methodId": 2
     }
   ],
   "purchases": [
@@ -280,7 +328,8 @@
       "clientId": 1,
       "price": 20000,
       "date": "2019-01-20",
-      "completed": true
+      "completed": true,
+      "note": "Скоро оплачу"
     },
     {
       "id": 2,
@@ -288,7 +337,8 @@
       "clientId": 2,
       "price": 50000,
       "date": "2019-03-01",
-      "completed": false
+      "completed": false,
+      "note": "Скоро оплачу"
     },
     {
       "id": 3,
@@ -296,7 +346,8 @@
       "clientId": 3,
       "price": 50000,
       "date": "2019-04-01",
-      "completed": true
+      "completed": true,
+      "note": "Скоро оплачу"
     },
     {
       "id": 4,
@@ -304,7 +355,8 @@
       "clientId": 4,
       "price": 60000,
       "date": "2019-04-25",
-      "completed": false
+      "completed": false,
+      "note": "Скоро оплачу"
     },
     {
       "id": 5,
@@ -312,7 +364,8 @@
       "clientId": 5,
       "price": 30000,
       "date": "2019-05-10",
-      "completed": true
+      "completed": true,
+      "note": "Скоро оплачу"
     },
     {
       "id": 6,
@@ -320,7 +373,8 @@
       "clientId": 6,
       "price": 55000,
       "date": "2019-06-10",
-      "completed": false
+      "completed": false,
+      "note": "Скоро оплачу"
     },
     {
       "id": 7,
@@ -328,7 +382,8 @@
       "clientId": 7,
       "price": 19000,
       "date": "2019-07-01",
-      "completed": true
+      "completed": true,
+      "note": "Скоро оплачу"
     },
     {
       "id": 8,
@@ -336,7 +391,8 @@
       "clientId": 8,
       "price": 100000,
       "date": "2019-07-25",
-      "completed": false
+      "completed": false,
+      "note": "Скоро оплачу"
     },
     {
       "id": 9,
@@ -344,7 +400,8 @@
       "clientId": 9,
       "price": 70000,
       "date": "2019-08-20",
-      "completed": true
+      "completed": true,
+      "note": "Скоро оплачу"
     },
     {
       "id": 10,
@@ -352,7 +409,8 @@
       "clientId": 10,
       "price": 59000,
       "date": "2019-09-10",
-      "completed": false
+      "completed": false,
+      "note": "Скоро оплачу"
     },
     {
       "id": 11,
@@ -360,7 +418,62 @@
       "clientId": 1,
       "price": 20000,
       "date": "2019-01-20",
-      "completed": true
+      "completed": true,
+      "note": "Скоро оплачу"
+    },
+    {
+      "id": 12,
+      "name": "курсы \"INTOCODE\"",
+      "clientId": 1,
+      "price": 20000,
+      "date": 2021,
+      "completed": true,
+      "note": "вклад в себя"
+    },
+    {
+      "id": 13,
+      "name": "Энергетики",
+      "clientId": 1,
+      "price": 10000,
+      "date": 2021,
+      "completed": true,
+      "note": "для хорошей работы"
+    },
+    {
+      "id": 14,
+      "name": "успокоительное",
+      "clientId": 1,
+      "price": 3000,
+      "date": 2021,
+      "completed": true,
+      "note": "2 упаковки"
+    },
+    {
+      "id": 15,
+      "name": "Наушники",
+      "clientId": 1,
+      "price": 2000,
+      "date": 2021,
+      "completed": true,
+      "note": "отдам завтра"
+    },
+    {
+      "id": 16,
+      "name": "Вода",
+      "clientId": 1,
+      "price": 1500,
+      "date": 2021,
+      "completed": true,
+      "note": ""
+    },
+    {
+      "id": 17,
+      "name": "Подписка ",
+      "clientId": 1,
+      "price": 3200,
+      "date": 2021,
+      "completed": true,
+      "note": "Взалог оставляю паспорт"
     }
   ]
 }

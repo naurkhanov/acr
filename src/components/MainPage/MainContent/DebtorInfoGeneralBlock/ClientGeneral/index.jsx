@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ClientSearch from './ClientSearch';
 import ClientInfo from './ClientInfo';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import ScrollWrap from './ScrollWrap';
 
@@ -21,9 +21,7 @@ const DebtorInfoGeneralBlockStyles = styled.div`
 
 function DebtorInfoGeneralBlock(props) {
   const clients = useSelector((state) => state.clients.items);
-  const payments = useSelector(state=>state.clients.payments)
-
-
+  const payments = useSelector((state) => state.clients.payments);
 
   return (
     <DebtorInfoGeneralBlockStyles>

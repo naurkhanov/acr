@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { clients, loadPayments } from '../../../../../redux/ducks/clients';
+import { loadPayments } from '../../../../../redux/ducks/clients';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 const Debtor = styled.div`
@@ -55,17 +55,18 @@ const BlockWrap = styled.div`
 `;
 
 function ClientInfo(props) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const debtorId = props.clients.id;
-  const payments = useSelector(state=>state.clients.payments)
-  const paymentsFilter = payments.reverse().find(item=>item.clientId === debtorId)
-  const nowTime = parseInt(dayjs().format('DD'))
-  const paymentDate = parseInt(dayjs(paymentsFilter?.date).format('DD'))
+  const payments = useSelector((state) => state.clients.payments);
+  const paymentsFilter = payments
+    .reverse()
+    .find((item) => item.clientId === debtorId);
+  const nowTime = parseInt(dayjs().format('DD'));
+  const paymentDate = parseInt(dayjs(paymentsFilter?.date).format('DD'));
 
-
-  useEffect(()=>{
-    dispatch(loadPayments())
-  },[dispatch])
+  useEffect(() => {
+    dispatch(loadPayments());
+  }, [dispatch]);
 
   return (
     <NavLink to={`main/${debtorId}`}>
@@ -84,9 +85,12 @@ function ClientInfo(props) {
             </div>
           </div>
           <div className="lastPaymentTitle">
-            Последня оплата: {  paymentsFilter?.difference-nowTime} дней  назад на сумму {paymentsFilter?.amount}
+            Последня оплата: {paymentsFilter?.difference - nowTime} дней назад
+            на сумму {paymentsFilter?.amount}
           </div>
-          <div className="leftPaymentTitle">Осталось к оплате: {props.clients.indebtedness}</div>
+          <div className="leftPaymentTitle">
+            Осталось к оплате: {props.clients.indebtedness}
+          </div>
         </BlockWrap>
         <div className="strelka">→</div>
       </Debtor>

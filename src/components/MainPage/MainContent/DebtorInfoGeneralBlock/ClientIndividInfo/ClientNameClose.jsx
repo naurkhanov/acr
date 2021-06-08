@@ -48,9 +48,9 @@ function ClientNameClose(props) {
         <div className="debtorName">
           {individClientInfo.lastname +
             ' ' +
-          individClientInfo.firstname +
+            individClientInfo.firstname +
             ' ' +
-          individClientInfo.surname}
+            individClientInfo.surname}
         </div>
         <span className="material-icons">done</span>
       </div>

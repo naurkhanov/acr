@@ -1,7 +1,7 @@
 const initialState = {
   items: [],
   loadDebtors: false,
-  payments: []
+  payments: [],
 };
 
 export const clients = (state = initialState, action) => {
@@ -21,8 +21,8 @@ export const clients = (state = initialState, action) => {
     case 'payments/general/load/success':
       return {
         ...state,
-        payments: action.payload
-      }
+        payments: action.payload,
+      };
     default:
       return state;
   }
@@ -45,18 +45,18 @@ export const loadClients = () => {
   };
 };
 
-export const loadPayments = () =>{
-  return dispatch =>{
+export const loadPayments = () => {
+  return (dispatch) => {
     dispatch({
       type: 'payments/general/load/start',
-    })
+    });
     fetch(`http://localhost:3005/payments`)
-      .then(response=>response.json())
-      .then(json=>{
+      .then((response) => response.json())
+      .then((json) => {
         dispatch({
           type: 'payments/general/load/success',
-          payload: json
-        })
-      })
-  }
-}
+          payload: json,
+        });
+      });
+  };
+};

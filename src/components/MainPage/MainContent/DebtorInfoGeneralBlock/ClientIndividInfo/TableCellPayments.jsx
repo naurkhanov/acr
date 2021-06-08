@@ -5,14 +5,13 @@ import dayjs from 'dayjs';
 
 const TableCellWrap = styled.tr`
   width: 100%;
- 
-  & > td{
+
+  & > td {
     font-size: 18px;
   }
 `;
 
-function TableCell(props) {
-
+function TableCellPayments(props) {
   const paymentMethods = useSelector(
     (state) => state.individualclient.paymentMethods
   );
@@ -20,18 +19,17 @@ function TableCell(props) {
 
   const paymentMethod = paymentMethods.find(
     (item) => item.id === props.payment.methodId
-  )
-
+  );
 
   return (
     <TableCellWrap>
-        <td>{props.index+1}</td>
-        <td>{props.payment.amount}</td>
-        <td>{dayjs(date).format("D MMMM")}</td>
-        <td>{paymentMethod?.name}</td>
-        <td>{props.payment.note}</td>
+      <th>{props.index + 1}</th>
+      <th>{props.payment.amount}</th>
+      <th>{dayjs(date).format('D MMMM')}</th>
+      <th>{paymentMethod?.name}</th>
+      <th>{props.payment.note}</th>
     </TableCellWrap>
   );
 }
 
-export default TableCell;
+export default TableCellPayments;
