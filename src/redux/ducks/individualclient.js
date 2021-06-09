@@ -13,6 +13,7 @@ const initialState = {
   addPaymentLoading: false,
   purchaseListOpen: false,
   showModalPurchase: false,
+  paymentMethodSelection: false,
 };
 
 // reducer
@@ -103,6 +104,11 @@ export const individualclient = (state = initialState, action) => {
       return {
         ...state,
         purchases: [...state.purchases, action.payload],
+      };
+    case 'set/paymentsSelection':
+      return {
+        ...state,
+        paymentMethodSelection: !action.payload,
       };
     default:
       return state;
@@ -315,5 +321,16 @@ export const addpurchases = (
           payload: json,
         });
       });
+  };
+};
+
+// открываем/закрываем менюшку для выбора оплаты
+
+export const paymentSelection = (paymentSelection) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/paymentsSelection',
+      payload: paymentSelection,
+    });
   };
 };

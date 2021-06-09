@@ -12,7 +12,7 @@ import duration from 'dayjs/plugin/duration';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import PurchasesModal from './ModalIcons/PurchasesModal';
 
-function MainPage(props) {
+function MainPage() {
   const showPurchasesModal = useSelector(
     (state) => state.individualclient.showModalPurchase
   );

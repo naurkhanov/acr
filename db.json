@@ -319,6 +319,78 @@
       "amount": 1000,
       "note": "Проверка оплаты",
       "methodId": 2
+    },
+    {
+      "id": 20,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "проверка",
+      "methodId": 2
+    },
+    {
+      "id": 21,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 8000,
+      "note": "ыйцйцыйц",
+      "methodId": 2
+    },
+    {
+      "id": 22,
+      "date": "2021-05-08",
+      "clientId": 2,
+      "amount": 3000,
+      "note": "Оплата прошла успешно",
+      "methodId": 2
+    },
+    {
+      "id": 23,
+      "date": "2021-06-07",
+      "clientId": 3,
+      "amount": 10000,
+      "note": "1 минуту назад скинул",
+      "methodId": 2
+    },
+    {
+      "id": 24,
+      "date": "2021-06-08",
+      "clientId": 1,
+      "amount": 33700,
+      "note": "закрываю долги",
+      "methodId": 2
+    },
+    {
+      "id": 25,
+      "date": "2021-06-09",
+      "clientId": 5,
+      "amount": 10000,
+      "note": "комментарий к платежу",
+      "methodId": 2
+    },
+    {
+      "id": 26,
+      "date": "2021-06-09",
+      "clientId": 5,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": null
+    },
+    {
+      "id": 27,
+      "date": "2021-06-09",
+      "clientId": 5,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 1
+    },
+    {
+      "id": 28,
+      "date": "2021-06-09",
+      "clientId": 5,
+      "amount": 1000,
+      "note": "комментарий к платежу",
+      "methodId": 2
     }
   ],
   "purchases": [

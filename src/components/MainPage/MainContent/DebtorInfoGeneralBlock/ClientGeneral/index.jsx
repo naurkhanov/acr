@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ClientSearch from './ClientSearch';
 import ClientInfo from './ClientInfo';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ScrollWrap from './ScrollWrap';
+import { loadLastPayments } from '../../../../../redux/ducks/clients';
 
 const DebtorInfoGeneralBlockStyles = styled.div`
   width: 100%;
@@ -20,15 +21,19 @@ const DebtorInfoGeneralBlockStyles = styled.div`
 `;
 
 function DebtorInfoGeneralBlock(props) {
+  const dispatch = useDispatch();
   const clients = useSelector((state) => state.clients.items);
-  const payments = useSelector((state) => state.clients.payments);
+
+  useEffect(() => {
+    dispatch(loadLastPayments());
+  }, [dispatch]);
 
   return (
     <DebtorInfoGeneralBlockStyles>
       <ClientSearch />
       <ScrollWrap>
-        {clients.map((clients) => {
-          return <ClientInfo clients={clients} />;
+        {clients.map((client) => {
+          return <ClientInfo client={client} />;
         })}
       </ScrollWrap>
     </DebtorInfoGeneralBlockStyles>

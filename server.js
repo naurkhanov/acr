@@ -60,7 +60,7 @@ const newClients = clients.map((client) => {
 const paymentsWithDiff = payments.map((payment) => {
   const now = dayjs();
   const date = payment.date;
-  const diff = now.diff(date, 'month');
+  const diff = now.diff(date, 'minutes');
   return {
     ...payment,
     difference: diff,
@@ -68,7 +68,7 @@ const paymentsWithDiff = payments.map((payment) => {
 });
 
 //оставляем последние платежи
-const lastPayment = clients.map((client) => {
+const lastPayments = clients.map((client) => {
   const userPayments = getUserPayments(paymentsWithDiff, client.id);
   const diffs = userPayments.map((item) => item.difference);
   const minDiff = Math.min(...diffs);
@@ -97,7 +97,7 @@ server.get('/debtors', (req, res) => {
 });
 
 server.get('/lastpayments', (req, res) => {
-  return res.json(lastPayment);
+  return res.json(lastPayments);
 });
 
 server.get('/payments/:clientId', (req, res) => {

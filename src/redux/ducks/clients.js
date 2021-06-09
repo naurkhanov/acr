@@ -2,6 +2,7 @@ const initialState = {
   items: [],
   loadDebtors: false,
   payments: [],
+  lastpayments: [],
 };
 
 export const clients = (state = initialState, action) => {
@@ -22,6 +23,11 @@ export const clients = (state = initialState, action) => {
       return {
         ...state,
         payments: action.payload,
+      };
+    case 'load/lastPayments/success':
+      return {
+        ...state,
+        lastpayments: action.payload,
       };
     default:
       return state;
@@ -55,6 +61,22 @@ export const loadPayments = () => {
       .then((json) => {
         dispatch({
           type: 'payments/general/load/success',
+          payload: json,
+        });
+      });
+  };
+};
+
+export const loadLastPayments = () => {
+  return (dispatch) => {
+    dispatch({
+      type: 'load/lastPayments/start',
+    });
+    fetch(`http://localhost:3005/lastpayments`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'load/lastPayments/success',
           payload: json,
         });
       });

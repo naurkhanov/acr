@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { loadPayments } from '../../../../../redux/ducks/clients';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import locale_ru from 'dayjs/locale/ru';
+
 const Debtor = styled.div`
   width: 100%;
   margin-top: 20px;
@@ -34,8 +38,11 @@ const BlockWrap = styled.div`
 
     & > .debtor_icon {
       margin-left: 10px;
-      & > span {
-        color: green;
+      & > .green {
+        color: #4bdc26;
+      }
+      & > .attention {
+        color: #ed940e;
       }
     }
   }
@@ -54,15 +61,17 @@ const BlockWrap = styled.div`
   }
 `;
 
-function ClientInfo(props) {
+function ClientInfo({ client }) {
+  dayjs.extend(duration);
+  dayjs.extend(relativeTime);
   const dispatch = useDispatch();
-  const debtorId = props.clients.id;
-  const payments = useSelector((state) => state.clients.payments);
-  const paymentsFilter = payments
-    .reverse()
-    .find((item) => item.clientId === debtorId);
-  const nowTime = parseInt(dayjs().format('DD'));
-  const paymentDate = parseInt(dayjs(paymentsFilter?.date).format('DD'));
+  const debtorId = client.id;
+  const lastPayments = useSelector((state) => state.clients.lastpayments);
+  const currentPayment = lastPayments.find(
+    (item) => item.clientId === debtorId
+  );
+  const lastPaymentDate = currentPayment?.date;
+  console.log(currentPayment?.date);
 
   useEffect(() => {
     dispatch(loadPayments());
@@ -74,22 +83,24 @@ function ClientInfo(props) {
         <BlockWrap>
           <div className="debtorAndIcon">
             <div className="debtorTitle">
-              {props.clients.lastname +
-                ' ' +
-                props.clients.firstname +
-                ' ' +
-                props.clients.surname}
+              {client.lastname + ' ' + client.firstname + ' ' + client.surname}
             </div>
             <div className="debtor_icon">
-              <span className="material-icons">done</span>
+              <span
+                className={`material-icons ${
+                  client.indebtedness === 0 ? 'green' : 'attention'
+                }`}
+              >
+                {client.indebtedness === 0 ? 'done' : 'error'}
+              </span>
             </div>
           </div>
           <div className="lastPaymentTitle">
-            Последня оплата: {paymentsFilter?.difference - nowTime} дней назад
-            на сумму {paymentsFilter?.amount}
+            Последня оплата: {dayjs(lastPaymentDate).fromNow()} на{' '}
+            {currentPayment?.amount}
           </div>
           <div className="leftPaymentTitle">
-            Осталось к оплате: {props.clients.indebtedness}
+            Осталось к оплате: {client.indebtedness}
           </div>
         </BlockWrap>
         <div className="strelka">→</div>
