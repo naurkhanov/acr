@@ -11,9 +11,6 @@ import {
   ButtonAdd,
   ButtonWrap,
   CommentWrap,
-  DropdownIconWrap,
-  DropdownObject,
-  DropdownWrap,
   ModalHeaderWrap,
   ModalWrapper,
   NameInputWrap,
@@ -50,7 +47,6 @@ function PaymentsModal() {
   const handleOpenPaymentsSelection = () => {
     dispatch(paymentSelection(paymentsSelection));
   };
-  console.log(paymentsSelection);
 
   return (
     <Background>

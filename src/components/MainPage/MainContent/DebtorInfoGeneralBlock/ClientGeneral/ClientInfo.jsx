@@ -71,7 +71,6 @@ function ClientInfo({ client }) {
     (item) => item.clientId === debtorId
   );
   const lastPaymentDate = currentPayment?.date;
-  console.log(currentPayment?.date);
 
   useEffect(() => {
     dispatch(loadPayments());

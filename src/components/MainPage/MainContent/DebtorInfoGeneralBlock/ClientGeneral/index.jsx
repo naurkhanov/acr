@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import ScrollWrap from './ScrollWrap';
 import { loadLastPayments } from '../../../../../redux/ducks/clients';
+import { useParams } from 'react-router-dom';
 
 const DebtorInfoGeneralBlockStyles = styled.div`
   width: 100%;
@@ -23,6 +24,13 @@ const DebtorInfoGeneralBlockStyles = styled.div`
 function DebtorInfoGeneralBlock(props) {
   const dispatch = useDispatch();
   const clients = useSelector((state) => state.clients.items);
+  const filterText = useSelector((state) => state.clients.filter);
+
+  const filteredClients = clients.filter((client) => {
+    const clientInicial =
+      client.firstname + ' ' + client.lastname + ' ' + client.lastname;
+    return clientInicial.toLowerCase().indexOf(filterText) > -1;
+  });
 
   useEffect(() => {
     dispatch(loadLastPayments());
@@ -32,7 +40,7 @@ function DebtorInfoGeneralBlock(props) {
     <DebtorInfoGeneralBlockStyles>
       <ClientSearch />
       <ScrollWrap>
-        {clients.map((client) => {
+        {filteredClients.map((client) => {
           return <ClientInfo client={client} />;
         })}
       </ScrollWrap>

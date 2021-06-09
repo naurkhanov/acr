@@ -3,6 +3,7 @@ const initialState = {
   loadDebtors: false,
   payments: [],
   lastpayments: [],
+  filter: '',
 };
 
 export const clients = (state = initialState, action) => {
@@ -28,6 +29,11 @@ export const clients = (state = initialState, action) => {
       return {
         ...state,
         lastpayments: action.payload,
+      };
+    case 'set/filter':
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;
@@ -80,5 +86,16 @@ export const loadLastPayments = () => {
           payload: json,
         });
       });
+  };
+};
+
+//фильтрация по имени
+
+export const filterClientsName = (text) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/filter',
+      payload: text,
+    });
   };
 };

@@ -1,38 +1,25 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { DebtorSearchForm, SearchFixed } from './styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterClientsName } from '../../../../../redux/ducks/clients';
 
-const DebtorSearchForm = styled.input`
-  width: 100%;
-  height: 45px;
-  font-size: 18px;
-  font-weight: 300;
-  padding: 20px 20px 20px 20px;
-  outline: #9d65c9;
-  border-radius: 5px;
+function ClientSearch() {
+  const dispatch = useDispatch();
 
-  border: none;
-  background-color: transparent;
+  const filter = useSelector((state) => state.clients.filter);
 
-  &:focus {
-    border: 1px solid #9d65c9;
-  }
+  const handleChangeFilter = (event) => {
+    dispatch(filterClientsName(event.target.value));
+  };
 
-  &:hover {
-    border: 1px solid #9d65c9;
-  }
-`;
-
-const SearchFixed = styled.div`
-  position: sticky;
-  top: 5px;
-  z-index: 1000;
-  background-color: #fff;
-`;
-
-function ClientSearch(props) {
   return (
     <SearchFixed>
-      <DebtorSearchForm type="text" placeholder="Поиск по имени" />
+      <DebtorSearchForm
+        type="text"
+        placeholder="Поиск по имени"
+        value={filter}
+        onChange={handleChangeFilter}
+      />
     </SearchFixed>
   );
 }
