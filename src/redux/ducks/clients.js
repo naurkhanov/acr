@@ -4,6 +4,8 @@ const initialState = {
   payments: [],
   lastpayments: [],
   filter: '',
+  debtorsShow: false,
+  debtors: [],
 };
 
 export const clients = (state = initialState, action) => {
@@ -34,6 +36,16 @@ export const clients = (state = initialState, action) => {
       return {
         ...state,
         filter: action.payload,
+      };
+    case 'set/debtors/show':
+      return {
+        ...state,
+        debtorsShow: !action.payload,
+      };
+    case 'load/debtors/success':
+      return {
+        ...state,
+        debtors: action.payload,
       };
     default:
       return state;
@@ -97,5 +109,34 @@ export const filterClientsName = (text) => {
       type: 'set/filter',
       payload: text,
     });
+  };
+};
+
+//показывать должников
+
+export const debtorsshowchange = (debtorsShow) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/debtors/show',
+      payload: debtorsShow,
+    });
+  };
+};
+
+//подгружаем должников
+
+export const loadDebtors = () => {
+  return (dispatch) => {
+    dispatch({
+      type: 'load/debtors/start',
+    });
+    fetch('http://localhost:3005/debtors')
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'load/debtors/success',
+          payload: json,
+        });
+      });
   };
 };

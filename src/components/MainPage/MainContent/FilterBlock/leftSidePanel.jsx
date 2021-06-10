@@ -5,6 +5,7 @@ import ExpirationBlock from './ExpirationBlock';
 import RemainBlock from './RemainBlock';
 import LastPayment from './LastPayment';
 import RepaidDept from './RepaidDept';
+import { useSelector } from 'react-redux';
 
 const SidePanelGeneral = styled.div`
   width: 300px;
@@ -15,9 +16,11 @@ const SidePanelGeneral = styled.div`
 `;
 
 function LeftSidePanel(props) {
+  const clients = useSelector((state) => state.clients.items);
+
   return (
     <SidePanelGeneral>
-      <FilterAmount>Фильтр(205)</FilterAmount>
+      <FilterAmount>{`Фильтр(${clients.length})`}</FilterAmount>
       <ExpirationBlock />
       <RemainBlock />
       <LastPayment />
