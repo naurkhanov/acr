@@ -60,7 +60,7 @@ const newClients = clients.map((client) => {
 const paymentsWithDiff = payments.map((payment) => {
   const now = dayjs();
   const date = payment.date;
-  const diff = now.diff(date, 'minutes');
+  const diff = now.diff(date, 'day');
   return {
     ...payment,
     difference: diff,
@@ -120,6 +120,13 @@ server.get('/purchases/:clientId', (req, res) => {
     (purchase) => purchase.clientId === parseInt(req.params.clientId)
   );
   return res.json(purchasesFilter);
+});
+
+// маршрут от и до
+
+server.get('lastpayments/from=:from/to=:to', (req, res) => {
+  const lastpaymentsFilter = lastPayments.filter((payment) => {});
+  return res.json();
 });
 
 server.use(router);

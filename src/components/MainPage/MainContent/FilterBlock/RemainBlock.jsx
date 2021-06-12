@@ -1,53 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-
-const Remain = styled.div`
-  margin-top: 20px;
-
-  & > .remainTitle {
-    font-weight: 400;
-    font-size: 18px;
-  }
-
-  & > .fromAndTo {
-    display: flex;
-    justify-content: space-between;
-    width: 165px;
-    margin-top: 10px;
-
-    & > .from {
-      color: #d0d0d0;
-    }
-
-    & > .to {
-      color: #d0d0d0;
-    }
-  }
-
-  & > .fromAndToForms {
-    width: 260px;
-    justify-content: space-between;
-    display: flex;
-    margin-top: 10px;
-
-    & > input {
-      width: 120px;
-      height: 61px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      outline: none;
-      padding: 20px;
-      font-size: 18px;
-      font-weight: 300;
-      border-radius: 5px;
-    }
-
-    & > input::placeholder {
-      color: #d0d0d0;
-    }
-  }
-`;
+import React, { useEffect, useState } from 'react';
+import { Remain } from './styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { set } from 'husky';
+import { loadToFromDebtors } from '../../../../redux/ducks/clients';
 
 function RemainBlock(props) {
+  const dispatch = useDispatch();
+  const debtors = useSelector((state) => state.clients.debtors);
+  const indebtedness = debtors.map((client) => client.indebtedness);
+  const minIndebtedness = Math.min.apply(null, indebtedness);
+  const maxIndebtedness = Math.max.apply(null, indebtedness);
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+
+  useEffect(() => {
+    dispatch(loadToFromDebtors());
+  }, [from, to]);
   return (
     <Remain>
       <div className="remainTitle">Остаток оплаты</div>
@@ -56,8 +24,18 @@ function RemainBlock(props) {
         <div className="to">До</div>
       </div>
       <div className="fromAndToForms">
-        <input type="text" placeholder="100" />
-        <input type="text" placeholder="26500" />
+        <input
+          type="text"
+          placeholder={minIndebtedness}
+          value={from}
+          onChange={(event) => setFrom(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder={maxIndebtedness}
+          value={to}
+          onChange={(event) => setTo(event.target.value)}
+        />
       </div>
     </Remain>
   );

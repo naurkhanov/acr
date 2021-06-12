@@ -47,6 +47,7 @@ export const clients = (state = initialState, action) => {
         ...state,
         debtors: action.payload,
       };
+
     default:
       return state;
   }
@@ -135,6 +136,24 @@ export const loadDebtors = () => {
       .then((json) => {
         dispatch({
           type: 'load/debtors/success',
+          payload: json,
+        });
+      });
+  };
+};
+
+//фильтрация фром to
+
+export const loadToFromDebtors = (from, to) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'load/debtors/toFrom/start',
+    });
+    fetch(`http://localhost:3005/lastpayments/${from}/${to}:`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'load/debtors/toFrom/start',
           payload: json,
         });
       });

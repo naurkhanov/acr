@@ -391,6 +391,14 @@
       "amount": 1000,
       "note": "комментарий к платежу",
       "methodId": 2
+    },
+    {
+      "id": 29,
+      "date": "2021-06-11",
+      "clientId": 8,
+      "amount": 10000,
+      "note": "извините за задержку",
+      "methodId": 2
     }
   ],
   "purchases": [
