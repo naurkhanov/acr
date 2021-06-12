@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Remain } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { set } from 'husky';
-import { loadToFromDebtors } from '../../../../redux/ducks/clients';
+import { setForm, setOt } from '../../../../redux/ducks/clients';
 
 function RemainBlock(props) {
   const dispatch = useDispatch();
   const debtors = useSelector((state) => state.clients.debtors);
   const indebtedness = debtors.map((client) => client.indebtedness);
-  const minIndebtedness = Math.min.apply(null, indebtedness);
-  const maxIndebtedness = Math.max.apply(null, indebtedness);
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
+  const minIndebtedness = Math.min(...indebtedness);
+  const maxIndebtedness = Math.max(...indebtedness);
 
-  useEffect(() => {
-    dispatch(loadToFromDebtors());
-  }, [from, to]);
+  const fromNumbers = useSelector((state) => state.clients.from);
+  const toNumbers = useSelector((state) => state.clients.to);
+  const handleChangeFrom = (event) => {
+    dispatch(setForm(event.target.value));
+  };
+  const handleChangeTo = (event) => {
+    dispatch(setOt(event.target.value));
+  };
+
   return (
     <Remain>
       <div className="remainTitle">Остаток оплаты</div>
@@ -27,14 +30,14 @@ function RemainBlock(props) {
         <input
           type="text"
           placeholder={minIndebtedness}
-          value={from}
-          onChange={(event) => setFrom(event.target.value)}
+          value={fromNumbers}
+          onChange={handleChangeFrom}
         />
         <input
           type="text"
           placeholder={maxIndebtedness}
-          value={to}
-          onChange={(event) => setTo(event.target.value)}
+          value={toNumbers}
+          onChange={handleChangeTo}
         />
       </div>
     </Remain>

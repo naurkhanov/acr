@@ -7,7 +7,6 @@ function ClientSearch() {
   const dispatch = useDispatch();
 
   const filter = useSelector((state) => state.clients.filter);
-  console.log(filter);
 
   const handleChangeFilter = (event) => {
     dispatch(filterClientsName(event.target.value));

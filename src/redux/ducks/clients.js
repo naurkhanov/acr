@@ -6,6 +6,8 @@ const initialState = {
   filter: '',
   debtorsShow: false,
   debtors: [],
+  from: undefined,
+  to: undefined,
 };
 
 export const clients = (state = initialState, action) => {
@@ -47,7 +49,16 @@ export const clients = (state = initialState, action) => {
         ...state,
         debtors: action.payload,
       };
-
+    case 'set/from':
+      return {
+        ...state,
+        from: action.payload,
+      };
+    case 'set/to':
+      return {
+        ...state,
+        to: action.payload,
+      };
     default:
       return state;
   }
@@ -142,20 +153,24 @@ export const loadDebtors = () => {
   };
 };
 
-//фильтрация фром to
+//изменение инпута from
 
-export const loadToFromDebtors = (from, to) => {
+export const setForm = (from) => {
   return (dispatch) => {
     dispatch({
-      type: 'load/debtors/toFrom/start',
+      type: 'set/from',
+      payload: from,
     });
-    fetch(`http://localhost:3005/lastpayments/${from}/${to}:`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({
-          type: 'load/debtors/toFrom/start',
-          payload: json,
-        });
-      });
+  };
+};
+
+//изменения инпута to
+
+export const setOt = (to) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/to',
+      payload: to,
+    });
   };
 };

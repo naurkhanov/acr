@@ -399,6 +399,22 @@
       "amount": 10000,
       "note": "извините за задержку",
       "methodId": 2
+    },
+    {
+      "id": 30,
+      "date": "2021-06-12",
+      "clientId": 3,
+      "amount": 9000,
+      "note": "косарь отдам потом",
+      "methodId": 2
+    },
+    {
+      "id": 31,
+      "date": "2021-06-13",
+      "clientId": 3,
+      "amount": 1000,
+      "note": "отдал весь долг",
+      "methodId": 2
     }
   ],
   "purchases": [
@@ -554,6 +570,15 @@
       "date": 2021,
       "completed": true,
       "note": "Взалог оставляю паспорт"
+    },
+    {
+      "id": 18,
+      "name": "Java курсы",
+      "clientId": 3,
+      "price": 10000,
+      "date": 2021,
+      "completed": true,
+      "note": "В рассрочку"
     }
   ]
 }
