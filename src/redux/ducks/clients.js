@@ -11,6 +11,7 @@ const initialState = {
   all: false,
   weekAgo: false,
   monthAgo: false,
+  repaidDeptShow: false,
 };
 
 export const clients = (state = initialState, action) => {
@@ -49,6 +50,7 @@ export const clients = (state = initialState, action) => {
         monthAgo: false,
         all: false,
         weekAgo: false,
+        repaidDeptShow: false,
       };
     case 'load/debtors/success':
       return {
@@ -71,6 +73,8 @@ export const clients = (state = initialState, action) => {
         all: !action.payload,
         weekAgo: false,
         monthAgo: false,
+        repaidDeptShow: false,
+        debtorsShow: false,
       };
     case 'set/WeekAgo':
       return {
@@ -78,6 +82,8 @@ export const clients = (state = initialState, action) => {
         weekAgo: !action.payload,
         monthAgo: false,
         all: false,
+        repaidDeptShow: false,
+        debtorsShow: false,
       };
     case 'set/monthAgo':
       return {
@@ -85,6 +91,17 @@ export const clients = (state = initialState, action) => {
         monthAgo: !action.payload,
         weekAgo: false,
         all: false,
+        repaidDeptShow: false,
+        debtorsShow: false,
+      };
+    case 'set/repaidDept':
+      return {
+        ...state,
+        repaidDeptShow: !action.payload,
+        monthAgo: false,
+        weekAgo: false,
+        all: false,
+        debtorsShow: false,
       };
     default:
       return state;
@@ -230,6 +247,15 @@ export const setMonthAgo = (monthAgo) => {
     dispatch({
       type: 'set/monthAgo',
       payload: monthAgo,
+    });
+  };
+};
+
+export const setRepaid = (repaidDept) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/repaidDept',
+      payload: repaidDept,
     });
   };
 };

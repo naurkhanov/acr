@@ -21,6 +21,7 @@ function DebtorInfoGeneralBlock(props) {
   const all = useSelector((state) => state.clients.all);
   const weekAgo = useSelector((state) => state.clients.weekAgo);
   const monthAgo = useSelector((state) => state.clients.monthAgo);
+  const repaidDept = useSelector((state) => state.clients.repaidDeptShow);
   //фильтрация
   const showDebtors = useSelector((state) => state.clients.debtorsShow);
   const getOrDefault = (value, defaultValue) => {
@@ -77,27 +78,46 @@ function DebtorInfoGeneralBlock(props) {
     }
   );
 
+  const filteredLastPaymentsClientsWeekAgo = lastPaymentsClientsWeekAgo.filter(
+    (client) => {
+      const clientInicial =
+        client?.firstname + ' ' + client?.lastname + ' ' + client?.lastname;
+      return clientInicial.toUpperCase().indexOf(filterText.toUpperCase()) > -1;
+    }
+  );
+
+  const filteredLastPaymentsClientsMonthAgo =
+    lastPaymentsClientsMonthAgo.filter((client) => {
+      const clientInicial =
+        client?.firstname + ' ' + client?.lastname + ' ' + client?.lastname;
+      return clientInicial.toUpperCase().indexOf(filterText.toUpperCase()) > -1;
+    });
+
   const choiseAndWeekAgo = (
     showDebtors,
     filteredDebtors,
     weekAgo,
-    lastPaymentsClientsWeekAgo,
+    filteredLastPaymentsClientsWeekAgo,
     monthAgo,
-    lastPaymentsClientsMonthAgo,
+    filteredLastPaymentsClientsMonthAgo,
     all,
-    filteredClients
+    filteredClients,
+    repaidDept
   ) => {
     if (showDebtors) {
       return filteredDebtors;
     } else if (weekAgo) {
-      return lastPaymentsClientsWeekAgo;
+      return filteredLastPaymentsClientsWeekAgo;
     } else if (monthAgo) {
-      return lastPaymentsClientsMonthAgo;
+      return filteredLastPaymentsClientsMonthAgo;
     } else if (all) {
       return filteredClients;
+    } else if (repaidDept) {
+      return filteredDebtors;
     }
     return filteredClients;
   };
+  console.log(repaidDept);
 
   useEffect(() => {
     dispatch(loadLastPayments());
@@ -106,7 +126,7 @@ function DebtorInfoGeneralBlock(props) {
   useEffect(() => {
     dispatch(loadDebtors());
   }, [dispatch]);
-  console.log(monthAgo);
+
   return (
     <DebtorInfoGeneralBlockStyles>
       <ClientSearch />
@@ -115,11 +135,12 @@ function DebtorInfoGeneralBlock(props) {
           showDebtors,
           filteredDebtors,
           weekAgo,
-          lastPaymentsClientsWeekAgo,
+          filteredLastPaymentsClientsWeekAgo,
           monthAgo,
-          lastPaymentsClientsMonthAgo,
+          filteredLastPaymentsClientsMonthAgo,
           all,
-          filteredClients
+          filteredClients,
+          repaidDept
         ).map((client) => {
           return <ClientInfo client={client} key={client?.id} />;
         })}
