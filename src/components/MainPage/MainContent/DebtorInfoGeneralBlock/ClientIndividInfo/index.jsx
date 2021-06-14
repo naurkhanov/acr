@@ -33,7 +33,7 @@ const DebtorIndividInfoWrap = styled.div`
   }
 `;
 
-function ClientIndividInfo(props) {
+function ClientIndividInfo() {
   const dispatch = useDispatch();
   const debtorId = useParams().debtorId;
   const purchasesOpen = useSelector(

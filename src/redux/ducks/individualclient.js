@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-
 const initialState = {
   items: [],
   loadIndividualDebtors: false,

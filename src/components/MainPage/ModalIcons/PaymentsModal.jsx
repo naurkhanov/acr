@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   addpayment,
   closePaymentsModal,
-  paymentSelection,
 } from '../../../redux/ducks/individualclient';
 import dayjs from 'dayjs';
 import {
@@ -16,7 +15,7 @@ import {
   NameInputWrap,
   SumPaymentsWrap,
   TimePay,
-} from './style';
+} from './styled';
 
 function PaymentsModal() {
   const dispatch = useDispatch();
@@ -39,13 +38,6 @@ function PaymentsModal() {
     dispatch(
       addpayment(items.id, sumPayment, paymentComment, methodPayment, date)
     );
-  };
-  const paymentsSelection = useSelector(
-    (state) => state.individualclient.paymentMethodSelection
-  );
-
-  const handleOpenPaymentsSelection = () => {
-    dispatch(paymentSelection(paymentsSelection));
   };
 
   return (

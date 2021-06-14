@@ -3,7 +3,7 @@ import TableCellPayments from './TableCellPayments';
 import { useSelector } from 'react-redux';
 import { PaymentsListWrap } from './styled';
 
-function PaymentsList(props) {
+function PaymentsList() {
   const payments = useSelector((state) => state.individualclient.payments);
   return (
     <PaymentsListWrap>
@@ -22,7 +22,7 @@ function PaymentsList(props) {
         <table>
           <tbody>
             {payments.map((item, index) => (
-              <TableCellPayments payment={item} index={index} />
+              <TableCellPayments payment={item} index={index} key={item.id} />
             ))}
           </tbody>
         </table>

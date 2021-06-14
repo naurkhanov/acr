@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addpurchases,
@@ -16,7 +15,7 @@ import {
   NameInputWrap,
   SumPaymentsWrap,
   TimePay,
-} from './style';
+} from './styled';
 
 function PurchasesModal() {
   const dispatch = useDispatch();

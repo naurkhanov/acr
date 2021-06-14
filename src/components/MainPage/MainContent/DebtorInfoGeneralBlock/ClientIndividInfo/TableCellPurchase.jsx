@@ -9,14 +9,14 @@ const TableCellPurchaseWrap = styled.tr`
   }
 `;
 
-function TableCellPurchase(props) {
+function TableCellPurchase({ purchase, index }) {
   return (
     <TableCellPurchaseWrap>
-      <th>{props.index + 1}</th>
-      <th>{props.purchase.price}</th>
-      <th>{dayjs(props.purchase.date).format('D MMMM')}</th>
-      <th>{props.purchase.name}</th>
-      <th>{props.purchase?.note}</th>
+      <th>{index + 1}</th>
+      <th>{purchase.price}</th>
+      <th>{dayjs(purchase.date).format('D MMMM')}</th>
+      <th>{purchase.name}</th>
+      <th>{purchase?.note}</th>
     </TableCellPurchaseWrap>
   );
 }

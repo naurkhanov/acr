@@ -9,7 +9,7 @@
       "id": 1,
       "firstname": "Ахьмад",
       "lastname": "Кудузов",
-      "surname": "Отчество",
+      "surname": "Якубович",
       "countryCode": "+7",
       "phone": "929-892-2305",
       "email": "admin@intocode.ru",
@@ -415,6 +415,54 @@
       "amount": 1000,
       "note": "отдал весь долг",
       "methodId": 2
+    },
+    {
+      "id": 32,
+      "date": "2021-05-23",
+      "clientId": 2,
+      "amount": 1000,
+      "note": "косарь",
+      "methodId": 2
+    },
+    {
+      "id": 33,
+      "date": "2021-06-13",
+      "clientId": 4,
+      "amount": 1000,
+      "note": "косарь раз",
+      "methodId": 2
+    },
+    {
+      "id": 34,
+      "date": "2021-05-10",
+      "clientId": 6,
+      "amount": 3000,
+      "note": "3 косаря",
+      "methodId": 1
+    },
+    {
+      "id": 35,
+      "date": "2021-06-13",
+      "clientId": 7,
+      "amount": 5000,
+      "note": "последние деньги",
+      "methodId": 2
+    },
+    {
+      "id": 36,
+      "date": "2021-06-13",
+      "clientId": 9,
+      "amount": 1500,
+      "note": "больше не буду брать долг",
+      "methodId": 1
+    },
+    {
+      "id": 37,
+      "date": "2021-05-13",
+      "clientId": 10,
+      "amount": 1400,
+      "note": "проверка",
+      "methodId": 2
     }
   ],
   "purchases": [
@@ -579,6 +627,15 @@
       "date": 2021,
       "completed": true,
       "note": "В рассрочку"
+    },
+    {
+      "id": 19,
+      "name": "кенчик",
+      "clientId": 10,
+      "price": 1500,
+      "date": 2021,
+      "completed": true,
+      "note": "не получилось"
     }
   ]
 }

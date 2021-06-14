@@ -10,7 +10,7 @@ const DebtorWrap = styled.div`
   width: 100%;
 `;
 
-function Index(props) {
+function Index() {
   const dispatch = useDispatch();
 
   useEffect(() => {

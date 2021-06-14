@@ -3,10 +3,9 @@ import { ExpirationWrap } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { debtorsshowchange } from '../../../../redux/ducks/clients';
 
-function ExpirationBlock(props) {
+function ExpirationBlock() {
   const dispatch = useDispatch();
   const debtorsShow = useSelector((state) => state.clients.debtorsShow);
-
   const handleChangeRadio = () => {
     dispatch(debtorsshowchange(debtorsShow));
   };

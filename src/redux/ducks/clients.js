@@ -8,6 +8,9 @@ const initialState = {
   debtors: [],
   from: undefined,
   to: undefined,
+  all: false,
+  weekAgo: false,
+  monthAgo: false,
 };
 
 export const clients = (state = initialState, action) => {
@@ -43,6 +46,9 @@ export const clients = (state = initialState, action) => {
       return {
         ...state,
         debtorsShow: !action.payload,
+        monthAgo: false,
+        all: false,
+        weekAgo: false,
       };
     case 'load/debtors/success':
       return {
@@ -58,6 +64,27 @@ export const clients = (state = initialState, action) => {
       return {
         ...state,
         to: action.payload,
+      };
+    case 'set/all':
+      return {
+        ...state,
+        all: !action.payload,
+        weekAgo: false,
+        monthAgo: false,
+      };
+    case 'set/WeekAgo':
+      return {
+        ...state,
+        weekAgo: !action.payload,
+        monthAgo: false,
+        all: false,
+      };
+    case 'set/monthAgo':
+      return {
+        ...state,
+        monthAgo: !action.payload,
+        weekAgo: false,
+        all: false,
       };
     default:
       return state;
@@ -171,6 +198,38 @@ export const setOt = (to) => {
     dispatch({
       type: 'set/to',
       payload: to,
+    });
+  };
+};
+
+//изменение радио кнопки all
+
+export const setAll = (all) => {
+  return (dispatch) => {
+    return dispatch({
+      type: 'set/all',
+      payload: all,
+    });
+  };
+};
+
+//изменение радио кнопки месяц назад
+export const setWeekAgo = (weekAgo) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/WeekAgo',
+      payload: weekAgo,
+    });
+  };
+};
+
+//изменение радио кнопки месяц назад
+
+export const setMonthAgo = (monthAgo) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'set/monthAgo',
+      payload: monthAgo,
     });
   };
 };

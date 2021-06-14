@@ -10,7 +10,7 @@ import RegistrationError from './RegistrationError';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginStart } from '../../redux/ducks/registration';
 
-function Registration(props) {
+function Registration() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.registration.error);
   const autorizing = useSelector((state) => state.registration.authorizing);

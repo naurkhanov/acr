@@ -9,7 +9,7 @@ import MainSection from './MainSection';
 import { authReset } from '../../../redux/ducks/registration';
 import { useDispatch } from 'react-redux';
 
-function MainHeader(props) {
+function MainHeader() {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(authReset());

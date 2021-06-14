@@ -11,23 +11,22 @@ const TableCellWrap = styled.tr`
   }
 `;
 
-function TableCellPayments(props) {
+function TableCellPayments({ payment, index }) {
   const paymentMethods = useSelector(
     (state) => state.individualclient.paymentMethods
   );
-  const date = props.payment.date;
-
+  const date = payment.date;
   const paymentMethod = paymentMethods.find(
-    (item) => item.id === props.payment.methodId
+    (item) => item.id === payment.methodId
   );
 
   return (
     <TableCellWrap>
-      <th>{props.index + 1}</th>
-      <th>{props.payment.amount}</th>
+      <th>{index + 1}</th>
+      <th>{payment.amount}</th>
       <th>{dayjs(date).format('D MMMM')}</th>
       <th>{paymentMethod?.name}</th>
-      <th>{props.payment.note}</th>
+      <th>{payment.note}</th>
     </TableCellWrap>
   );
 }

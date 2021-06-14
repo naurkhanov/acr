@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux';
 import TableCellPurchase from './TableCellPurchase';
 import { PaymentsListWrap } from './styled';
 
-function PurchasesList(props) {
+function PurchasesList() {
   const purchases = useSelector((state) => state.individualclient.purchases);
-  console.log(purchases);
   return (
     <PaymentsListWrap>
       <table>

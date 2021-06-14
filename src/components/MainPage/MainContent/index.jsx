@@ -8,7 +8,7 @@ const MainContentWrap = styled.div`
   display: flex;
 `;
 
-function MainContent(props) {
+function MainContent() {
   return (
     <MainContentWrap>
       <LeftSidePanel />

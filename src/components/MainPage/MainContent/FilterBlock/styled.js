@@ -186,3 +186,11 @@ export const LastPaymentWrap = styled.div`
     }
   }
 `;
+
+export const SidePanelGeneral = styled.div`
+  width: 300px;
+  height: 450px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 20px 20px;
+  border-radius: 10px;
+`;

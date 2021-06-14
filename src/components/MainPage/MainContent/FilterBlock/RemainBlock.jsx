@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Remain } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setForm, setOt } from '../../../../redux/ducks/clients';
 
-function RemainBlock(props) {
+function RemainBlock() {
   const dispatch = useDispatch();
   const debtors = useSelector((state) => state.clients.debtors);
   const indebtedness = debtors.map((client) => client.indebtedness);
   const minIndebtedness = Math.min(...indebtedness);
   const maxIndebtedness = Math.max(...indebtedness);
-
   const fromNumbers = useSelector((state) => state.clients.from);
   const toNumbers = useSelector((state) => state.clients.to);
   const handleChangeFrom = (event) => {

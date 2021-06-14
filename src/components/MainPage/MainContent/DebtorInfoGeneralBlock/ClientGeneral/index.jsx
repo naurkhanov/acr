@@ -1,29 +1,14 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import ClientSearch from './ClientSearch';
 import ClientInfo from './ClientInfo';
 import { useDispatch, useSelector } from 'react-redux';
-
 import ScrollWrap from './ScrollWrap';
 import {
   loadDebtors,
   loadLastPayments,
 } from '../../../../../redux/ducks/clients';
-import { useParams } from 'react-router-dom';
-import { createLogger } from 'redux-logger/src';
-
-const DebtorInfoGeneralBlockStyles = styled.div`
-  width: 100%;
-  height: 850px;
-  margin-left: 20px;
-  padding: 0 20px 0 20px;
-  overflow: auto;
-  position: relative;
-
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-`;
+import { DebtorInfoGeneralBlockStyles } from './styled';
+import dayjs from 'dayjs';
 
 function DebtorInfoGeneralBlock(props) {
   const dispatch = useDispatch();
@@ -32,16 +17,17 @@ function DebtorInfoGeneralBlock(props) {
   const from = useSelector((state) => state.clients.from);
   const to = useSelector((state) => state.clients.to);
   const debtors = useSelector((state) => state.clients.debtors);
+  const lastPayments = useSelector((state) => state.clients.lastpayments);
+  const all = useSelector((state) => state.clients.all);
+  const weekAgo = useSelector((state) => state.clients.weekAgo);
+  const monthAgo = useSelector((state) => state.clients.monthAgo);
   //фильтрация
   const showDebtors = useSelector((state) => state.clients.debtorsShow);
-
   const getOrDefault = (value, defaultValue) => {
-    return value == undefined ? defaultValue : value;
+    return value === undefined ? defaultValue : value;
   };
-
   const fromOpred = getOrDefault(from, 0);
   const toOpred = getOrDefault(to, 100000000);
-
   const filteredToFrom = clients.filter((client) => {
     return fromOpred && toOpred
       ? client.indebtedness >= fromOpred && toOpred >= client.indebtedness
@@ -51,7 +37,6 @@ function DebtorInfoGeneralBlock(props) {
       ? client.indebtedness <= toOpred
       : client.indebtedness;
   });
-
   const filteredToFromDebtors = debtors.filter((client) => {
     return fromOpred && toOpred
       ? client.indebtedness >= fromOpred && toOpred >= client.indebtedness
@@ -61,20 +46,58 @@ function DebtorInfoGeneralBlock(props) {
       ? client.indebtedness <= toOpred
       : client.indebtedness;
   });
-
   const filteredClients = filteredToFrom.filter((client) => {
     const clientInicial =
       client.firstname + ' ' + client.lastname + ' ' + client.lastname;
     return clientInicial.toUpperCase().indexOf(filterText.toUpperCase()) > -1;
   });
-
   const filteredDebtors = filteredToFromDebtors.filter((debtor) => {
     const debtorInicial =
       debtor.firstname + ' ' + debtor.lastname + ' ' + debtor.lastname;
     return debtorInicial.toUpperCase().indexOf(filterText.toUpperCase()) > -1;
   });
 
-  const choice = showDebtors === true ? filteredDebtors : filteredClients;
+  const filteredPaymentsWeekAgo = lastPayments.filter((payment) => {
+    const diffDate = dayjs().diff(dayjs(payment.date), 'd');
+    return diffDate <= 7;
+  });
+
+  const filteredPaymentsMonthAgo = lastPayments.filter((payment) => {
+    const diffDate = dayjs().diff(dayjs(payment.date), 'd');
+    return diffDate > 30;
+  });
+
+  const lastPaymentsClientsWeekAgo = filteredPaymentsWeekAgo.map((payment) => {
+    return clients.find((client) => client?.id === payment?.clientId);
+  });
+
+  const lastPaymentsClientsMonthAgo = filteredPaymentsMonthAgo.map(
+    (payment) => {
+      return clients.find((client) => client?.id === payment?.clientId);
+    }
+  );
+
+  const choiseAndWeekAgo = (
+    showDebtors,
+    filteredDebtors,
+    weekAgo,
+    lastPaymentsClientsWeekAgo,
+    monthAgo,
+    lastPaymentsClientsMonthAgo,
+    all,
+    filteredClients
+  ) => {
+    if (showDebtors) {
+      return filteredDebtors;
+    } else if (weekAgo) {
+      return lastPaymentsClientsWeekAgo;
+    } else if (monthAgo) {
+      return lastPaymentsClientsMonthAgo;
+    } else if (all) {
+      return filteredClients;
+    }
+    return filteredClients;
+  };
 
   useEffect(() => {
     dispatch(loadLastPayments());
@@ -83,13 +106,22 @@ function DebtorInfoGeneralBlock(props) {
   useEffect(() => {
     dispatch(loadDebtors());
   }, [dispatch]);
-
+  console.log(monthAgo);
   return (
     <DebtorInfoGeneralBlockStyles>
       <ClientSearch />
       <ScrollWrap>
-        {choice.map((client) => {
-          return <ClientInfo client={client} />;
+        {choiseAndWeekAgo(
+          showDebtors,
+          filteredDebtors,
+          weekAgo,
+          lastPaymentsClientsWeekAgo,
+          monthAgo,
+          lastPaymentsClientsMonthAgo,
+          all,
+          filteredClients
+        ).map((client) => {
+          return <ClientInfo client={client} key={client?.id} />;
         })}
       </ScrollWrap>
     </DebtorInfoGeneralBlockStyles>
