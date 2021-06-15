@@ -31,7 +31,7 @@ const LastPaymentWrap = styled.div`
     & > label {
       padding-left: 25px;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
       &:before {
         content: '';
         display: block;
@@ -63,7 +63,7 @@ const LastPaymentWrap = styled.div`
 
     input:checked + label:before {
       background-color: #9d65c9;
-      border-color: #fff;
+      border-color: rgba(0, 0, 0, 0.1);
     }
     input:checked + label:after {
       opacity: 1;
