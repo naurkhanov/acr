@@ -251,6 +251,7 @@ export const setMonthAgo = (monthAgo) => {
   };
 };
 
+//изменение checkbox скрыть погасивших долг
 export const setRepaid = (repaidDept) => {
   return (dispatch) => {
     dispatch({
