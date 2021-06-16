@@ -26,6 +26,7 @@ export const SearchFixed = styled.div`
   top: 5px;
   z-index: 1000;
   background-color: #fff;
+  padding: 10px 0 0 0 ;
 `;
 
 export const DebtorInfoGeneralBlockStyles = styled.div`
