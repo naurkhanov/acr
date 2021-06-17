@@ -19,3 +19,23 @@ export const RegistrationFormPassword = styled(RegistrationFormLogin)`
   margin-top: 20px;
   font-weight: 300;
 `;
+
+export const SpinnerWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+export const InputWrapper = styled.div`
+  & > .inputWrap {
+    & > span {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 208px;
+      left: 440px;
+      cursor: pointer;
+    }
+  }
+`;

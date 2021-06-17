@@ -6,7 +6,7 @@ const middlewares = jsonServer.defaults();
 const payments = router.db.get('payments');
 const purchases = router.db.get('purchases');
 const clients = router.db.get('clients');
-const admin = router.db.get('admin');
+const admins = router.db.get('admins');
 const dayjs = require('dayjs');
 
 server.use(middlewares);
@@ -122,12 +122,14 @@ server.get('/purchases/:clientId', (req, res) => {
   return res.json(purchasesFilter);
 });
 
-// маршрут от и до
+server.get('/authorization/login=:login/password=:password',(req,res)=>{
+  const admin = admins.find((item)=>item.login === req.params.login)
+  const password = admin.toJSON().password
+  return password === req.params.password ? res.json(admin.toJSON().token)
+    : res.json()
+})
 
-server.get('lastpayments/from=:from/to=:to', (req, res) => {
-  const lastpaymentsFilter = lastPayments.filter((payment) => {});
-  return res.json();
-});
+
 
 server.use(router);
 server.listen(process.env.PORT || 3005, () => {

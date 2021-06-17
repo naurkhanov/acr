@@ -117,7 +117,6 @@ function DebtorInfoGeneralBlock(props) {
     }
     return filteredClients;
   };
-  console.log(repaidDept);
 
   useEffect(() => {
     dispatch(loadLastPayments());

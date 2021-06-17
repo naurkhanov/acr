@@ -9,6 +9,8 @@ import RegistrationHref from './RegistrationHref';
 import RegistrationError from './RegistrationError';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginStart } from '../../redux/ducks/registration';
+import ReactLoading from 'react-loading';
+import { SpinnerWrap } from './styled';
 
 function Registration() {
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ function Registration() {
   const [password, setPassword] = useState('');
 
   const handleClick = () => {
-    dispatch(loginStart());
+    dispatch(loginStart(login, password));
   };
 
   return (
@@ -38,7 +40,18 @@ function Registration() {
         />
         <Wrapper>
           <Button autorization click={handleClick} disabled={autorizing}>
-            Авторизация
+            {error === true ? (
+              <SpinnerWrap>
+                <ReactLoading
+                  type={'spin'}
+                  color={'#fff'}
+                  height={'20%'}
+                  width={'20%'}
+                />
+              </SpinnerWrap>
+            ) : (
+              'Авторизация'
+            )}
           </Button>
         </Wrapper>
         <Demologin>Данные для демо-входа: admin:12345</Demologin>

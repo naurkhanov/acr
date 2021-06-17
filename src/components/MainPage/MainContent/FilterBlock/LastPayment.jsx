@@ -6,10 +6,6 @@ import {
   setWeekAgo,
 } from '../../../../redux/ducks/clients';
 import styled from 'styled-components';
-import checked from '../../../../icons/checked.svg';
-import { InputGroup } from 'react-bootstrap';
-
-console.log(checked);
 
 const LastPaymentWrap = styled.div`
   margin-top: 20px;
