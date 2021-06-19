@@ -1,6 +1,6 @@
 const initialState = {
   loading: false,
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem('auth-token'),
   authorizing: false,
   error: false,
 };
@@ -16,7 +16,7 @@ export const registration = (state = initialState, action) => {
         error: false,
       };
 
-    case 'login/succeed':
+    case 'auth/succeed':
       return {
         ...state,
         token: action.payload,
@@ -24,7 +24,7 @@ export const registration = (state = initialState, action) => {
         error: false,
       };
 
-    case 'login/error':
+    case 'auth/failed':
       return {
         ...state,
         authorizing: false,
@@ -48,20 +48,22 @@ export const loginStart = (login, password) => {
     dispatch({
       type: 'auth/started',
     });
-    fetch(
-      `http://localhost:3005/authorization/login=${login}/password=${password}`
-    )
+    fetch('http://localhost:3005/admin')
       .then((response) => response.json())
       .then((json) => {
-        localStorage.setItem('token', json);
-        dispatch({
-          type: 'login/succeed',
-          payload: json,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        return dispatch({ type: 'login/error' });
+        const random = Math.random();
+        if (random < 0.5) {
+          dispatch({
+            type: 'auth/failed',
+            payload: json,
+          });
+        } else {
+          localStorage.setItem('auth-token', json.token);
+          dispatch({
+            type: 'auth/succeed',
+            payload: json,
+          });
+        }
       });
   };
 };
@@ -69,7 +71,7 @@ export const loginStart = (login, password) => {
 //выход из аккаунта
 
 export const authReset = () => {
-  localStorage.removeItem('token');
+  localStorage.removeItem('auth-token');
   return {
     type: 'auth/reset',
   };
