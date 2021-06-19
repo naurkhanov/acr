@@ -64,5 +64,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,css,md}": "prettier --write"
-  }
+  },
+  "os": [
+    "darwin",
+    "win32"
+  ]
 }

@@ -48,7 +48,9 @@ export const loginStart = (login, password) => {
     dispatch({
       type: 'auth/started',
     });
-    fetch(`http://localhost:3005/authorization/`)
+    fetch(
+      `http://localhost:3005/authorization/login=${login}/password=${password}`
+    )
       .then((response) => response.json())
       .then((json) => {
         localStorage.setItem('token', json);
