@@ -9,14 +9,18 @@ import {
 } from '../../../../../redux/ducks/clients';
 import { DebtorInfoGeneralBlockStyles } from './styled';
 import dayjs from 'dayjs';
+import {
+  allClientsSelector,
+  debtorsSelector,
+} from '../../../../../redux/ducks/selectors/selectors';
 
 function DebtorInfoGeneralBlock(props) {
   const dispatch = useDispatch();
-  const clients = useSelector((state) => state.clients.items);
+  const clients = useSelector(allClientsSelector);
   const filterText = useSelector((state) => state.clients.filter);
   const from = useSelector((state) => state.clients.from);
   const to = useSelector((state) => state.clients.to);
-  const debtors = useSelector((state) => state.clients.debtors);
+  const debtors = useSelector(debtorsSelector);
   const lastPayments = useSelector((state) => state.clients.lastpayments);
   const all = useSelector((state) => state.clients.all);
   const weekAgo = useSelector((state) => state.clients.weekAgo);
@@ -29,6 +33,7 @@ function DebtorInfoGeneralBlock(props) {
   };
   const fromOpred = getOrDefault(from, 0);
   const toOpred = getOrDefault(to, 100000000);
+
   const filteredToFrom = clients.filter((client) => {
     return fromOpred && toOpred
       ? client.indebtedness >= fromOpred && toOpred >= client.indebtedness

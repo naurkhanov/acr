@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { BlockWrap, Debtor } from './styled';
+import { createSelector } from 'reselect';
 
 function ClientInfo({ client }) {
   dayjs.extend(duration);
@@ -14,7 +15,7 @@ function ClientInfo({ client }) {
   const debtorId = client?.id;
   const lastPayments = useSelector((state) => state.clients.lastpayments);
   const currentPayment = lastPayments.find(
-    (item) => item.clientId === debtorId
+    (item) => item?.clientId === debtorId
   );
   const lastPaymentDate = currentPayment?.date;
 

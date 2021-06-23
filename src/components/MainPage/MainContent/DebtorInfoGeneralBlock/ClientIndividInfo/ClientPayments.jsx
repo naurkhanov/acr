@@ -2,10 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 import { DebtorPaymentsWrap } from './styled';
+import {
+  IndividualClientsSelector,
+  PaymentsSelector,
+} from '../../../../../redux/ducks/selectors/selectors';
 
 function ClientPayments() {
-  const client = useSelector((state) => state.individualclient.items);
-  const payments = useSelector((state) => state.individualclient.payments);
+  const client = useSelector(IndividualClientsSelector);
+  const payments = useSelector(PaymentsSelector);
   const lastPayment = payments[payments.length - 1];
   const lastPaymentDate = dayjs(lastPayment?.date).add(dayjs.duration(30, 'd'));
 

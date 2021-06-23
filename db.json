@@ -1,11 +1,12 @@
 {
-  "admins":
+  "admins": [
     {
       "id": 1,
       "login": "admin",
       "password": "12345",
       "token": "qwerty1212e12qw3dword1oc1Eqeqeq"
-    },
+    }
+  ],
   "clients": [
     {
       "id": 1,
@@ -465,6 +466,118 @@
       "amount": 1400,
       "note": "проверка",
       "methodId": 2
+    },
+    {
+      "id": 38,
+      "date": "2021-06-22",
+      "clientId": 1,
+      "amount": 2500,
+      "note": "первый взнос",
+      "methodId": 2
+    },
+    {
+      "id": 39,
+      "date": "2021-06-23",
+      "clientId": 2,
+      "amount": 2000,
+      "note": "проверка",
+      "methodId": 2
+    },
+    {
+      "id": 40,
+      "date": "2021-06-23",
+      "clientId": 10,
+      "amount": 100,
+      "note": "yyy",
+      "methodId": 2
+    },
+    {
+      "id": 41,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "проверка",
+      "methodId": 2
+    },
+    {
+      "id": 42,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "проверка",
+      "methodId": 2
+    },
+    {
+      "id": 43,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 500,
+      "note": "проверка",
+      "methodId": 1
+    },
+    {
+      "id": 44,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 10000,
+      "note": "10к",
+      "methodId": 2
+    },
+    {
+      "id": 45,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "1q1q1",
+      "methodId": 2
+    },
+    {
+      "id": 46,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "w2w2w",
+      "methodId": 2
+    },
+    {
+      "id": 47,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 1000,
+      "note": "wqwwqwq",
+      "methodId": 2
+    },
+    {
+      "id": 48,
+      "date": "2021-06-23",
+      "clientId": 1,
+      "amount": 10000,
+      "note": "tttt",
+      "methodId": 2
+    },
+    {
+      "id": 49,
+      "date": "2021-06-23",
+      "clientId": 3,
+      "amount": 1000,
+      "note": "проверка",
+      "methodId": 2
+    },
+    {
+      "id": 50,
+      "date": "2021-06-23",
+      "clientId": 2,
+      "amount": 1000,
+      "note": "проверка",
+      "methodId": 2
+    },
+    {
+      "id": 51,
+      "date": "2021-06-23",
+      "clientId": 3,
+      "amount": 9000,
+      "note": "оплатил всё",
+      "methodId": 2
     }
   ],
   "purchases": [
@@ -638,6 +751,42 @@
       "date": 2021,
       "completed": true,
       "note": "не получилось"
+    },
+    {
+      "id": 20,
+      "name": "кредит",
+      "clientId": 1,
+      "price": 100000,
+      "date": 2021,
+      "completed": true,
+      "note": "на обустройство школы"
+    },
+    {
+      "id": 21,
+      "name": "курс",
+      "clientId": 4,
+      "price": 2000,
+      "date": 2021,
+      "completed": true,
+      "note": "develop"
+    },
+    {
+      "id": 22,
+      "name": "кредит",
+      "clientId": 4,
+      "price": 2000,
+      "date": 2021,
+      "completed": true,
+      "note": "development"
+    },
+    {
+      "id": 23,
+      "name": "орешки",
+      "clientId": 3,
+      "price": 10000,
+      "date": 2021,
+      "completed": true,
+      "note": "да"
     }
   ]
 }

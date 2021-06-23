@@ -224,6 +224,14 @@ export const CloseWrap = styled.div`
       margin-left: 10px;
       color: #4bdc26;
     }
+
+    & > .attention {
+      color: orange;
+    }
+
+    & > .green {
+      color: green;
+    }
   }
 
   & > .close {

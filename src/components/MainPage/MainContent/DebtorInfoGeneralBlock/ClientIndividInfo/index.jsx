@@ -16,6 +16,10 @@ import PaymentsList from './PaymentsList';
 import { CSSTransition } from 'react-transition-group';
 import AllPurchases from './AllPurchases';
 import PurchasesList from './PurchasesList';
+import {
+  PaymentsOpenSelector,
+  PurchasesListOpenSelector,
+} from '../../../../../redux/ducks/selectors/selectors';
 
 const DebtorIndividInfoWrap = styled.div`
   width: 100%;
@@ -36,12 +40,8 @@ const DebtorIndividInfoWrap = styled.div`
 function ClientIndividInfo() {
   const dispatch = useDispatch();
   const debtorId = useParams().debtorId;
-  const purchasesOpen = useSelector(
-    (state) => state.individualclient.purchaseListOpen
-  );
-  const paymentsOpen = useSelector(
-    (state) => state.individualclient.paymentsOpen
-  );
+  const purchasesOpen = useSelector(PurchasesListOpenSelector);
+  const paymentsOpen = useSelector(PaymentsOpenSelector);
   useEffect(() => {
     dispatch(loadIndividualDebtorInfo(debtorId));
   }, [dispatch, debtorId]);

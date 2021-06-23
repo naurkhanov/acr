@@ -10,7 +10,7 @@ export const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 1000;
 `;
 
 export const ModalWrapper = styled.div`
@@ -166,6 +166,123 @@ export const DropdownIconWrap = styled.div`
   cursor: pointer;
   & > span {
     margin-left: 5px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const InitialInputWrap = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  & > input {
+    width: 30%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const SocialInfoWrap = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  & > .countryCode {
+    width: 20%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  & > .number {
+    width: 30%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  & > .mail {
+    width: 45%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const PassportInputWrap = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  & > .passportNumber {
+    width: 35%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  & > .passportSerial {
+    width: 62%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const CityInfWrap = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  & > .city {
+    width: 30%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  & > .adress {
+    width: 66%;
+    height: 35px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 300;
     color: rgba(0, 0, 0, 0.5);
   }
 `;

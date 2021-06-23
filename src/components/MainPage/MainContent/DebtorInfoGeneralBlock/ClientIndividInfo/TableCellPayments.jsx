@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
+import { PaymentMethodsSelector } from '../../../../../redux/ducks/selectors/selectors';
 
 const TableCellWrap = styled.tr`
   width: 100%;
@@ -12,9 +13,7 @@ const TableCellWrap = styled.tr`
 `;
 
 function TableCellPayments({ payment, index }) {
-  const paymentMethods = useSelector(
-    (state) => state.individualclient.paymentMethods
-  );
+  const paymentMethods = useSelector(PaymentMethodsSelector);
   const date = payment.date;
   const paymentMethod = paymentMethods.find(
     (item) => item.id === payment.methodId

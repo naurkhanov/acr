@@ -11,13 +11,17 @@ import locale_ru from 'dayjs/locale/ru';
 import duration from 'dayjs/plugin/duration';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import PurchasesModal from './ModalIcons/PurchasesModal';
+import ClientAddModal from './ModalIcons/ClientAddModal';
+import {
+  PaymentsModalShowSelector,
+  ShowModalPurchaseSelector,
+} from '../../redux/ducks/selectors/selectors';
 
 function MainPage() {
-  const showPurchasesModal = useSelector(
-    (state) => state.individualclient.showModalPurchase
-  );
-  const showPaymentsModal = useSelector(
-    (state) => state.individualclient.showModalPayment
+  const showPurchasesModal = useSelector(ShowModalPurchaseSelector);
+  const showPaymentsModal = useSelector(PaymentsModalShowSelector);
+  const showAddClientModal = useSelector(
+    (state) => state.clients.showAddClientModal
   );
 
   dayjs.extend(relativeTime, locale_ru);
@@ -34,8 +38,9 @@ function MainPage() {
         <MainHeader />
         <MainContent />
       </MainWrap>
-      {showPaymentsModal === true ? <PaymentsModal /> : null}
-      {showPurchasesModal === true ? <PurchasesModal /> : null}
+      {showPaymentsModal && <PaymentsModal />}
+      {showPurchasesModal && <PurchasesModal />}
+      {showAddClientModal && <ClientAddModal />}
     </GeneralWrapper>
   );
 }

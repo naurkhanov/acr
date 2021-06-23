@@ -12,6 +12,8 @@ const initialState = {
   weekAgo: false,
   monthAgo: false,
   repaidDeptShow: false,
+  clients: [],
+  showAddClientModal: false,
 };
 
 export const clients = (state = initialState, action) => {
@@ -102,6 +104,21 @@ export const clients = (state = initialState, action) => {
         weekAgo: false,
         all: false,
         debtorsShow: false,
+      };
+    case 'load/tipClient/success':
+      return {
+        ...state,
+        clients: action.payload,
+      };
+    case 'set/addClientModalState':
+      return {
+        ...state,
+        showAddClientModal: action.payload,
+      };
+    case 'set/ModalShow':
+      return {
+        ...state,
+        showAddClientModal: false,
       };
     default:
       return state;
@@ -258,5 +275,36 @@ export const setRepaid = (repaidDept) => {
       type: 'set/repaidDept',
       payload: repaidDept,
     });
+  };
+};
+
+//подгрузка client
+
+export const loadTipClient = () => {
+  return (dispatch) => {
+    dispatch({
+      type: 'load/tipClient/start',
+    });
+    fetch('http://localhost:3005/clients')
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'load/tipClient/success',
+          payload: json,
+        });
+      });
+  };
+};
+
+export const changeAddClientModalState = (show) => {
+  return {
+    type: 'set/addClientModalState',
+    payload: !show,
+  };
+};
+
+export const closeModalAddClient = (show) => {
+  return {
+    type: 'set/ModalShow',
   };
 };

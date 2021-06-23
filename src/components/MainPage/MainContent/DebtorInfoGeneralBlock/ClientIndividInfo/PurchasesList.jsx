@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import TableCellPurchase from './TableCellPurchase';
 import { PaymentsListWrap } from './styled';
+import { PurchaseSelector } from '../../../../../redux/ducks/selectors/selectors';
 
 function PurchasesList() {
-  const purchases = useSelector((state) => state.individualclient.purchases);
+  const purchases = useSelector(PurchaseSelector);
   return (
     <PaymentsListWrap>
       <table>

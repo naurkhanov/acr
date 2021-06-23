@@ -5,19 +5,17 @@ import {
   showPaymentsModal,
 } from '../../../../../redux/ducks/individualclient';
 import { AllPaymentsWrap } from './styled';
+import {
+  PaymentsModalShowSelector,
+  PaymentsOpenSelector,
+  PaymentsSelector,
+} from '../../../../../redux/ducks/selectors/selectors';
 
 function AllPayments() {
   const dispatch = useDispatch();
-  const paymentsModalShow = useSelector(
-    (state) => state.individualclient.showModalPayment
-  );
-  const paymentsAmount = useSelector(
-    (state) => state.individualclient.payments
-  ).length;
-
-  const paymentOpen = useSelector(
-    (state) => state.individualclient.paymentsOpen
-  );
+  const paymentsModalShow = useSelector(PaymentsModalShowSelector);
+  const paymentsAmount = useSelector(PaymentsSelector).length;
+  const paymentOpen = useSelector(PaymentsOpenSelector);
   const handleOpenPayments = () => {
     dispatch(paymentsShow(paymentOpen));
   };

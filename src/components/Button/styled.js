@@ -54,4 +54,17 @@ export const StyledButton = styled.button`
       font-size: 20px;
       margin-top: 20px;
     `}
+  
+  ${(props) =>
+    props.addClient &&
+    css`
+      width: 150px;
+      height: 50px;
+      background-color: #9d65c9;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      margin-top: 20px;
+    `}
 `;

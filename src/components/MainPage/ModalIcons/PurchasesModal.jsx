@@ -16,10 +16,11 @@ import {
   SumPaymentsWrap,
   TimePay,
 } from './styled';
+import { IndividualClientsSelector } from '../../../redux/ducks/selectors/selectors';
 
 function PurchasesModal() {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.individualclient.items);
+  const items = useSelector(IndividualClientsSelector);
 
   const handleClosePurchaseModal = () => {
     dispatch(closePurchaseModal());

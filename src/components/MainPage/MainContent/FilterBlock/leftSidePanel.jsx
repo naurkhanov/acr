@@ -7,12 +7,12 @@ import RepaidDept from './RepaidDept';
 import { useSelector } from 'react-redux';
 import { SidePanelGeneral } from './styled';
 import styled from 'styled-components';
+import { allClientsSelector } from '../../../../redux/ducks/selectors/selectors';
 
 const DisabledWrap = styled.div``;
 
 function LeftSidePanel() {
-  const clients = useSelector((state) => state.clients.items);
-  const showDebtors = useSelector((state) => state.clients.debtorsShow);
+  const clients = useSelector(allClientsSelector);
 
   return (
     <SidePanelGeneral>

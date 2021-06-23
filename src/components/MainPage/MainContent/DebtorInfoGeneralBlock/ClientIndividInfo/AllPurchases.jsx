@@ -5,17 +5,18 @@ import {
   showPurchaseModal,
 } from '../../../../../redux/ducks/individualclient';
 import { AllPaymentsWrapPurchase } from './styled';
+import {
+  PurchaseSelector,
+  PurchasesListOpenSelector,
+  ShowModalPurchaseSelector,
+} from '../../../../../redux/ducks/selectors/selectors';
 
 function AllPayments() {
   const dispatch = useDispatch();
-  const paymentsModalShow = useSelector(
-    (state) => state.individualclient.showModalPurchase
-  );
-  const purchase = useSelector((state) => state.individualclient.purchases);
+  const paymentsModalShow = useSelector(ShowModalPurchaseSelector);
+  const purchase = useSelector(PurchaseSelector);
 
-  const purchaseOpen = useSelector(
-    (state) => state.individualclient.purchaseListOpen
-  );
+  const purchaseOpen = useSelector(PurchasesListOpenSelector);
   const handleOpenPurchase = () => {
     dispatch(openPurchaseList(purchaseOpen));
   };
