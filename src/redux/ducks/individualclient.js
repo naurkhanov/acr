@@ -121,7 +121,7 @@ export const loadIndividualDebtorInfo = (debtorId) => {
     dispatch({
       type: 'load/loadIndividualClientInfo/start',
     });
-    fetch(`http://localhost:3005/clientsides/${debtorId}`)
+    fetch(`/clientsides/${debtorId}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -148,7 +148,7 @@ export const loadPayments = (debtorId) => {
     dispatch({
       type: 'payments/load/start',
     });
-    fetch(`http://localhost:3005/payments/${debtorId}`)
+    fetch(`/payments/${debtorId}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -167,7 +167,7 @@ export const loadPaymentMethods = () => {
       type: 'paymentMethods/load/start',
     });
 
-    fetch('http://localhost:3005/paymentMethods')
+    fetch('/paymentMethods')
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -214,7 +214,7 @@ export const addpayment = (
       type: 'add/payment/start',
     });
 
-    fetch(`http://localhost:3005/payments`, {
+    fetch(`/payments`, {
       method: 'POST',
       body: JSON.stringify({
         id: '',
@@ -254,7 +254,7 @@ export const loadClientPurchases = (id) => {
     dispatch({
       type: 'load/client/purchase/start',
     });
-    fetch(`http://localhost:3005/purchases/${id}`)
+    fetch(`/purchases/${id}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -299,7 +299,7 @@ export const addpurchases = (
     dispatch({
       type: 'purchase/add/start',
     });
-    fetch(`http://localhost:3005/purchases`, {
+    fetch(`/purchases`, {
       method: 'POST',
       body: JSON.stringify({
         id: '',

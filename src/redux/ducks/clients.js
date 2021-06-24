@@ -131,7 +131,7 @@ export const loadClients = () => {
       type: 'clients/load/start',
     });
 
-    fetch('http://localhost:3005/clientsides')
+    fetch('/clientsides')
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -147,7 +147,7 @@ export const loadPayments = () => {
     dispatch({
       type: 'payments/general/load/start',
     });
-    fetch(`http://localhost:3005/payments`)
+    fetch(`/payments`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -163,7 +163,7 @@ export const loadLastPayments = () => {
     dispatch({
       type: 'load/lastPayments/start',
     });
-    fetch(`http://localhost:3005/lastpayments`)
+    fetch(`/lastpayments`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -203,7 +203,7 @@ export const loadDebtors = () => {
     dispatch({
       type: 'load/debtors/start',
     });
-    fetch('http://localhost:3005/debtors')
+    fetch('/debtors')
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -285,7 +285,7 @@ export const loadTipClient = () => {
     dispatch({
       type: 'load/tipClient/start',
     });
-    fetch('http://localhost:3005/clients')
+    fetch('/clients')
       .then((response) => response.json())
       .then((json) => {
         dispatch({
